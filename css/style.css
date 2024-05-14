@@ -215,7 +215,7 @@ body {
 
 /* Блок оффер */
 
-.offer {
+/* .offer {
     background: linear-gradient(260deg, #8360C3 -11.25%, #2EBF91 129.55%);
 }
 
@@ -280,11 +280,11 @@ body {
     max-width: 852px;
     width: 100%;
     height: auto;
-}
+} */
 
 /* Блок видео */
 
-.video {
+/* .video {
     margin-top: 100px;
     border-radius: 20px;
 }
@@ -318,11 +318,11 @@ video {
     border-radius: 20px;
     background: linear-gradient(90deg, #8360C3 0%, #2EBF91 100%);
     padding: 30px 100px;
-}
+} */
 
 /* Блок о нас */
 
-.about {
+/* .about {
     margin-top: 100px;
 }
 
@@ -361,10 +361,10 @@ video {
     font-size: 1.8rem;
     line-height: 35px;
     max-width: 506px;
-}
+} */
 
 /* Блок концепции */
-.conception {
+/* .conception {
     margin-top: 100px;
 }
 
@@ -422,7 +422,7 @@ video {
 .down {
     text-align: center;
     margin-top: 60px;
-}
+} */
 
 /* Слайдер */
 
@@ -648,7 +648,7 @@ video {
 
 /* Почему мы */
 
-.why__title {
+/* .why__title {
     max-width: 975px;
     color: var(--global-color-primary);
     font-size: 3rem;
@@ -720,7 +720,7 @@ video {
     line-height: 25px;
     font-variant: small-caps;
     letter-spacing: 0.36px;
-}
+} */
 
 .big {
     height: 220px;
@@ -746,10 +746,10 @@ video {
     margin-top: 60px;
 }
 
-
+/*
 /*Accordion*/
 
-.accordion {
+/* .accordion {
     display: flex;
     gap: 10px;
     flex-direction: column;
@@ -825,11 +825,11 @@ video {
 
 .accordion__item:not(.accordion__item_show) .accordion__body {
   display: none;
-}
+} */
 
 /* End */
 
-.feedback__form {
+/* .feedback__form {
     display: flex;
     max-width: 580px;
     height: 915px;
@@ -950,7 +950,7 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-}
+} */
 
 .product {
     height: 1109px;
@@ -1076,7 +1076,7 @@ input[type="submit"]:hover {
     font-size: 1.4rem;
 }
 
-.guide {
+/* .guide {
     background-color: var(--global-color-primary);
 }
 
@@ -1144,7 +1144,7 @@ input[type="submit"]:hover {
     font-family: 'Montserrat';
     align-items: center;
     gap: 15px;
-}
+} */
 
 .phone__icon,
 .mail__icon {
@@ -1153,7 +1153,7 @@ input[type="submit"]:hover {
 }
 
 
-.footer {
+/* .footer {
     margin-top: 100px;
     background-color: var(--global-color-primary);
 }
@@ -1218,7 +1218,7 @@ input[type="submit"]:hover {
     color: var(--global-color-white);
     font-family: 'Montserrat';
     font-weight: 700;
-}
+} */
 
 
 /*CONCEPTION*/
