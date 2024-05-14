@@ -1,1 +1,769 @@
-(()=>{var e={344:e=>{var t,n,i;t=window,n=0,i=function e(t,i){var s=this,o=this,r=!1;if(Array.isArray(t))return!!t.length&&t.map((function(t){return new e(t,i)}));var a={init:function(){this.options=Object.assign({duration:600,ariaEnabled:!0,collapse:!0,showMultiple:!1,onlyChildNodes:!0,openOnInit:[],elementClass:"ac",triggerClass:"ac-trigger",panelClass:"ac-panel",activeClass:"is-active",beforeOpen:function(){},onOpen:function(){},beforeClose:function(){},onClose:function(){}},i);var e="string"==typeof t;this.container=e?document.querySelector(t):t,this.createDefinitions(),o.attachEvents()},createDefinitions:function(){var e=this,t=this.options,i=t.elementClass,s=t.openOnInit,o=t.onlyChildNodes?this.container.childNodes:this.container.querySelectorAll(d(i));this.elements=Array.from(o).filter((function(e){return e.classList&&e.classList.contains(i)})),this.firstElement=this.elements[0],this.lastElement=this.elements[this.elements.length-1],this.elements.filter((function(e){return!e.classList.contains("js-enabled")})).forEach((function(t){t.classList.add("js-enabled"),e.generateIDs(t),e.setARIA(t),e.setTransition(t);var i=e.elements.indexOf(t);n++,s.includes(i)?e.showElement(t,!1):e.closeElement(t,!1)}))},setTransition:function(e){var t=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=this.options,i=n.duration,s=n.panelClass,o=e.querySelector(d(s)),r=c("transitionDuration");o.style[r]=t?null:"".concat(i,"ms")},generateIDs:function(e){var t=this.options,i=t.triggerClass,s=t.panelClass,o=e.querySelector(d(i)),r=e.querySelector(d(s));e.setAttribute("id",e.id||"ac-".concat(n)),o.setAttribute("id",o.id||"ac-trigger-".concat(n)),r.setAttribute("id",r.id||"ac-panel-".concat(n))},removeIDs:function(e){var t=this.options,n=t.triggerClass,i=t.panelClass,s=e.querySelector(d(n)),o=e.querySelector(d(i));e.id.startsWith("ac-")&&e.removeAttribute("id"),s.id.startsWith("ac-")&&s.removeAttribute("id"),o.id.startsWith("ac-")&&o.removeAttribute("id")},setARIA:function(e){var t=this.options,n=t.ariaEnabled,i=t.triggerClass,s=t.panelClass;if(n){var o=e.querySelector(d(i)),r=e.querySelector(d(s));o.setAttribute("role","button"),o.setAttribute("aria-controls",r.id),o.setAttribute("aria-disabled",!1),o.setAttribute("aria-expanded",!1),r.setAttribute("role","region"),r.setAttribute("aria-labelledby",o.id)}},updateARIA:function(e,t){var n=t.ariaExpanded,i=t.ariaDisabled,s=this.options,o=s.ariaEnabled,r=s.triggerClass;if(o){var a=e.querySelector(d(r));a.setAttribute("aria-expanded",n),a.setAttribute("aria-disabled",i)}},removeARIA:function(e){var t=this.options,n=t.ariaEnabled,i=t.triggerClass,s=t.panelClass;if(n){var o=e.querySelector(d(i)),r=e.querySelector(d(s));o.removeAttribute("role"),o.removeAttribute("aria-controls"),o.removeAttribute("aria-disabled"),o.removeAttribute("aria-expanded"),r.removeAttribute("role"),r.removeAttribute("aria-labelledby")}},focus:function(e,t){e.preventDefault();var n=this.options.triggerClass;t.querySelector(d(n)).focus()},focusFirstElement:function(e){this.focus(e,this.firstElement),this.currFocusedIdx=0},focusLastElement:function(e){this.focus(e,this.lastElement),this.currFocusedIdx=this.elements.length-1},focusNextElement:function(e){var t=this.currFocusedIdx+1;if(t>this.elements.length-1)return this.focusFirstElement(e);this.focus(e,this.elements[t]),this.currFocusedIdx=t},focusPrevElement:function(e){var t=this.currFocusedIdx-1;if(t<0)return this.focusLastElement(e);this.focus(e,this.elements[t]),this.currFocusedIdx=t},showElement:function(e){var t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],n=this.options,i=n.panelClass,s=n.activeClass,o=n.collapse,r=n.beforeOpen;t&&r(e);var a=e.querySelector(d(i)),c=a.scrollHeight;e.classList.add(s),requestAnimationFrame((function(){requestAnimationFrame((function(){a.style.height=t?"".concat(c,"px"):"auto"}))})),this.updateARIA(e,{ariaExpanded:!0,ariaDisabled:!o})},closeElement:function(e){var t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],n=this.options,i=n.panelClass,s=n.activeClass,o=n.beforeClose,r=e.querySelector(d(i)),a=r.scrollHeight;e.classList.remove(s),t?(o(e),requestAnimationFrame((function(){r.style.height="".concat(a,"px"),requestAnimationFrame((function(){r.style.height=0}))}))):r.style.height=0,this.updateARIA(e,{ariaExpanded:!1,ariaDisabled:!1})},toggleElement:function(e){var t=this.options,n=t.activeClass,i=t.collapse,s=e.classList.contains(n);if(!s||i)return s?this.closeElement(e):this.showElement(e)},closeElements:function(){var e=this,t=this.options,n=t.activeClass;t.showMultiple||this.elements.forEach((function(t,i){t.classList.contains(n)&&i!==e.currFocusedIdx&&e.closeElement(t)}))},handleClick:function(e){var t=this,n=e.currentTarget;this.elements.forEach((function(i,s){i.contains(n)&&"A"!==e.target.nodeName&&(t.currFocusedIdx=s,t.closeElements(),t.focus(e,i),t.toggleElement(i))}))},handleKeydown:function(e){switch(e.key){case"ArrowUp":return this.focusPrevElement(e);case"ArrowDown":return this.focusNextElement(e);case"Home":return this.focusFirstElement(e);case"End":return this.focusLastElement(e);default:return null}},handleFocus:function(e){var t=e.currentTarget,n=this.elements.find((function(e){return e.contains(t)}));this.currFocusedIdx=this.elements.indexOf(n)},handleTransitionEnd:function(e){if(e.stopPropagation(),"height"===e.propertyName){var t=this.options,n=t.onOpen,i=t.onClose,s=e.currentTarget,o=parseInt(s.style.height),r=this.elements.find((function(e){return e.contains(s)}));o>0?(s.style.height="auto",n(r)):i(r)}}};this.attachEvents=function(){if(!r){var e=a.options,t=e.triggerClass,n=e.panelClass;a.handleClick=a.handleClick.bind(a),a.handleKeydown=a.handleKeydown.bind(a),a.handleFocus=a.handleFocus.bind(a),a.handleTransitionEnd=a.handleTransitionEnd.bind(a),a.elements.forEach((function(e){var i=e.querySelector(d(t)),s=e.querySelector(d(n));i.addEventListener("click",a.handleClick),i.addEventListener("keydown",a.handleKeydown),i.addEventListener("focus",a.handleFocus),s.addEventListener("webkitTransitionEnd",a.handleTransitionEnd),s.addEventListener("transitionend",a.handleTransitionEnd)})),r=!0}},this.detachEvents=function(){if(r){var e=a.options,t=e.triggerClass,n=e.panelClass;a.elements.forEach((function(e){var i=e.querySelector(d(t)),s=e.querySelector(d(n));i.removeEventListener("click",a.handleClick),i.removeEventListener("keydown",a.handleKeydown),i.removeEventListener("focus",a.handleFocus),s.removeEventListener("webkitTransitionEnd",a.handleTransitionEnd),s.removeEventListener("transitionend",a.handleTransitionEnd)})),r=!1}},this.toggle=function(e){var t=a.elements[e];t&&a.toggleElement(t)},this.open=function(e){var t=a.elements[e];t&&a.showElement(t)},this.openAll=function(){var e=a.options,t=e.activeClass,n=e.onOpen;a.elements.forEach((function(e){e.classList.contains(t)||(a.showElement(e,!1),n(e))}))},this.close=function(e){var t=a.elements[e];t&&a.closeElement(t)},this.closeAll=function(){var e=a.options,t=e.activeClass,n=e.onClose;a.elements.forEach((function(e){e.classList.contains(t)&&(a.closeElement(e,!1),n(e))}))},this.destroy=function(){s.detachEvents(),s.openAll(),a.elements.forEach((function(e){a.removeIDs(e),a.removeARIA(e),a.setTransition(e,!0)})),r=!0},this.update=function(){a.createDefinitions(),s.detachEvents(),s.attachEvents()};var c=function(e){return"string"==typeof document.documentElement.style[e]?e:(e=l(e),e="webkit".concat(e))},l=function(e){return e.charAt(0).toUpperCase()+e.slice(1)},d=function(e){return".".concat(CSS.escape(e))};a.init()},void 0!==e.exports?e.exports=i:t.Accordion=i},860:()=>{function e(e){var t=!0,n=!1,i=null,s={text:!0,search:!0,url:!0,tel:!0,email:!0,password:!0,number:!0,date:!0,month:!0,week:!0,time:!0,datetime:!0,"datetime-local":!0};function o(e){return!!(e&&e!==document&&"HTML"!==e.nodeName&&"BODY"!==e.nodeName&&"classList"in e&&"contains"in e.classList)}function r(e){e.classList.contains("focus-visible")||(e.classList.add("focus-visible"),e.setAttribute("data-focus-visible-added",""))}function a(e){t=!1}function c(){document.addEventListener("mousemove",l),document.addEventListener("mousedown",l),document.addEventListener("mouseup",l),document.addEventListener("pointermove",l),document.addEventListener("pointerdown",l),document.addEventListener("pointerup",l),document.addEventListener("touchmove",l),document.addEventListener("touchstart",l),document.addEventListener("touchend",l)}function l(e){e.target.nodeName&&"html"===e.target.nodeName.toLowerCase()||(t=!1,document.removeEventListener("mousemove",l),document.removeEventListener("mousedown",l),document.removeEventListener("mouseup",l),document.removeEventListener("pointermove",l),document.removeEventListener("pointerdown",l),document.removeEventListener("pointerup",l),document.removeEventListener("touchmove",l),document.removeEventListener("touchstart",l),document.removeEventListener("touchend",l))}document.addEventListener("keydown",(function(n){n.metaKey||n.altKey||n.ctrlKey||(o(e.activeElement)&&r(e.activeElement),t=!0)}),!0),document.addEventListener("mousedown",a,!0),document.addEventListener("pointerdown",a,!0),document.addEventListener("touchstart",a,!0),document.addEventListener("visibilitychange",(function(e){"hidden"===document.visibilityState&&(n&&(t=!0),c())}),!0),c(),e.addEventListener("focus",(function(e){var n,i,a;o(e.target)&&(t||(i=(n=e.target).type,"INPUT"===(a=n.tagName)&&s[i]&&!n.readOnly||"TEXTAREA"===a&&!n.readOnly||n.isContentEditable))&&r(e.target)}),!0),e.addEventListener("blur",(function(e){var t;o(e.target)&&(e.target.classList.contains("focus-visible")||e.target.hasAttribute("data-focus-visible-added"))&&(n=!0,window.clearTimeout(i),i=window.setTimeout((function(){n=!1}),100),(t=e.target).hasAttribute("data-focus-visible-added")&&(t.classList.remove("focus-visible"),t.removeAttribute("data-focus-visible-added")))}),!0),e.nodeType===Node.DOCUMENT_FRAGMENT_NODE&&e.host?e.host.setAttribute("data-js-focus-visible",""):e.nodeType===Node.DOCUMENT_NODE&&(document.documentElement.classList.add("js-focus-visible"),document.documentElement.setAttribute("data-js-focus-visible",""))}if("undefined"!=typeof window&&"undefined"!=typeof document){var t;window.applyFocusVisiblePolyfill=e;try{t=new CustomEvent("focus-visible-polyfill-ready")}catch(e){(t=document.createEvent("CustomEvent")).initCustomEvent("focus-visible-polyfill-ready",!1,!1,{})}window.dispatchEvent(t)}"undefined"!=typeof document&&e(document)}},t={};function n(i){var s=t[i];if(void 0!==s)return s.exports;var o=t[i]={exports:{}};return e[i](o,o.exports,n),o.exports}n.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return n.d(t,{a:t}),t},n.d=(e,t)=>{for(var i in t)n.o(t,i)&&!n.o(e,i)&&Object.defineProperty(e,i,{enumerable:!0,get:t[i]})},n.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{"use strict";n(860);const e={windowEl:window,documentEl:document,htmlEl:document.documentElement,bodyEl:document.body},t=()=>{const t=document?.querySelectorAll(".fixed-block"),n=(document.body,parseInt(e.bodyEl.dataset.position,10));t.forEach((e=>{e.style.paddingRight="0px"})),e.bodyEl.style.paddingRight="0px",e.bodyEl.style.top="auto",e.bodyEl.classList.remove("dis-scroll"),window.scroll({top:n,left:0}),e.bodyEl.removeAttribute("data-position"),e.htmlEl.style.scrollBehavior="smooth"};!function(){const n=document?.querySelector("[data-burger]"),i=document?.querySelector("[data-menu]"),s=document?.querySelectorAll("[data-menu-item]"),o=document?.querySelector("[data-menu-overlay]");n?.addEventListener("click",(s=>{n?.classList.toggle("burger--active"),i?.classList.toggle("menu--active"),i?.classList.contains("menu--active")?(n?.setAttribute("aria-expanded","true"),n?.setAttribute("aria-label","Закрыть меню"),(()=>{const t=document?.querySelectorAll(".fixed-block"),n=window.scrollY,i=window.innerWidth-e.bodyEl.offsetWidth+"px";e.htmlEl.style.scrollBehavior="none",t.forEach((e=>{e.style.paddingRight=i})),e.bodyEl.style.paddingRight=i,e.bodyEl.classList.add("dis-scroll"),e.bodyEl.dataset.position=n,e.bodyEl.style.top=`-${n}px`})()):(n?.setAttribute("aria-expanded","false"),n?.setAttribute("aria-label","Открыть меню"),t())})),o?.addEventListener("click",(()=>{n?.setAttribute("aria-expanded","false"),n?.setAttribute("aria-label","Открыть меню"),n.classList.remove("burger--active"),i.classList.remove("menu--active"),t()})),s?.forEach((e=>{e.addEventListener("click",(()=>{n?.setAttribute("aria-expanded","false"),n?.setAttribute("aria-label","Открыть меню"),n.classList.remove("burger--active"),i.classList.remove("menu--active"),t()}))}))}(),document.addEventListener("DOMContentLoaded",(e=>{const t=document.querySelector(".video-block__video"),n=document.querySelector(".video-block__box"),i=document.querySelector(".video-block__play");if(t&&(i.addEventListener("click",(()=>{n.classList.add("played"),t.play(),t.controls=!0,i.classList.add("played")})),t.onpause=function(){n.classList.remove("played"),t.controls=!1,i.classList.remove("played")},window.innerWidth<768)){const e=new IntersectionObserver((e=>{let[t]=e;const n=t.target||{};0!==n.currentTime&&(!t.isIntersecting||t.intersectionRatio<=.2)&&n.pause()}),{threshold:[.4,.8]});document.querySelectorAll(".video-block__video").forEach((t=>{e.observe(t)}))}}));var i=n(344),s=n.n(i);document.addEventListener("DOMContentLoaded",(e=>{const t=document.querySelector(".faq-accordion");t&&new(s())(t)}))})()})();
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/accordion-js/dist/accordion.min.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/accordion-js/dist/accordion.min.js ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+/**
+ * Accordion v3.3.4
+ * Lightweight and accessible accordion module created in pure Javascript
+ * https://github.com/michu2k/Accordion
+ *
+ * Copyright (c) Michał Strumpf
+ * Published under MIT License
+ */
+
+!function(e){var t=0,n=function e(n,s){var i=this,r=this,o=!1;if(Array.isArray(n))return!!n.length&&n.map((function(t){return new e(t,s)}));var a={init:function(){this.options=Object.assign({duration:600,ariaEnabled:!0,collapse:!0,showMultiple:!1,onlyChildNodes:!0,openOnInit:[],elementClass:"ac",triggerClass:"ac-trigger",panelClass:"ac-panel",activeClass:"is-active",beforeOpen:function(){},onOpen:function(){},beforeClose:function(){},onClose:function(){}},s);var e="string"==typeof n;this.container=e?document.querySelector(n):n,this.createDefinitions(),r.attachEvents()},createDefinitions:function(){var e=this,n=this.options,s=n.elementClass,i=n.openOnInit,r=n.onlyChildNodes?this.container.childNodes:this.container.querySelectorAll(u(s));this.elements=Array.from(r).filter((function(e){return e.classList&&e.classList.contains(s)})),this.firstElement=this.elements[0],this.lastElement=this.elements[this.elements.length-1],this.elements.filter((function(e){return!e.classList.contains("js-enabled")})).forEach((function(n){n.classList.add("js-enabled"),e.generateIDs(n),e.setARIA(n),e.setTransition(n);var s=e.elements.indexOf(n);t++,i.includes(s)?e.showElement(n,!1):e.closeElement(n,!1)}))},setTransition:function(e){var t=arguments.length>1&&void 0!==arguments[1]&&arguments[1],n=this.options,s=n.duration,i=n.panelClass,r=e.querySelector(u(i)),o=l("transitionDuration");r.style[o]=t?null:"".concat(s,"ms")},generateIDs:function(e){var n=this.options,s=n.triggerClass,i=n.panelClass,r=e.querySelector(u(s)),o=e.querySelector(u(i));e.setAttribute("id",e.id||"ac-".concat(t)),r.setAttribute("id",r.id||"ac-trigger-".concat(t)),o.setAttribute("id",o.id||"ac-panel-".concat(t))},removeIDs:function(e){var t=this.options,n=t.triggerClass,s=t.panelClass,i=e.querySelector(u(n)),r=e.querySelector(u(s));e.id.startsWith("ac-")&&e.removeAttribute("id"),i.id.startsWith("ac-")&&i.removeAttribute("id"),r.id.startsWith("ac-")&&r.removeAttribute("id")},setARIA:function(e){var t=this.options,n=t.ariaEnabled,s=t.triggerClass,i=t.panelClass;if(n){var r=e.querySelector(u(s)),o=e.querySelector(u(i));r.setAttribute("role","button"),r.setAttribute("aria-controls",o.id),r.setAttribute("aria-disabled",!1),r.setAttribute("aria-expanded",!1),o.setAttribute("role","region"),o.setAttribute("aria-labelledby",r.id)}},updateARIA:function(e,t){var n=t.ariaExpanded,s=t.ariaDisabled,i=this.options,r=i.ariaEnabled,o=i.triggerClass;if(r){var a=e.querySelector(u(o));a.setAttribute("aria-expanded",n),a.setAttribute("aria-disabled",s)}},removeARIA:function(e){var t=this.options,n=t.ariaEnabled,s=t.triggerClass,i=t.panelClass;if(n){var r=e.querySelector(u(s)),o=e.querySelector(u(i));r.removeAttribute("role"),r.removeAttribute("aria-controls"),r.removeAttribute("aria-disabled"),r.removeAttribute("aria-expanded"),o.removeAttribute("role"),o.removeAttribute("aria-labelledby")}},focus:function(e,t){e.preventDefault();var n=this.options.triggerClass;t.querySelector(u(n)).focus()},focusFirstElement:function(e){this.focus(e,this.firstElement),this.currFocusedIdx=0},focusLastElement:function(e){this.focus(e,this.lastElement),this.currFocusedIdx=this.elements.length-1},focusNextElement:function(e){var t=this.currFocusedIdx+1;if(t>this.elements.length-1)return this.focusFirstElement(e);this.focus(e,this.elements[t]),this.currFocusedIdx=t},focusPrevElement:function(e){var t=this.currFocusedIdx-1;if(t<0)return this.focusLastElement(e);this.focus(e,this.elements[t]),this.currFocusedIdx=t},showElement:function(e){var t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],n=this.options,s=n.panelClass,i=n.activeClass,r=n.collapse,o=n.beforeOpen;t&&o(e);var a=e.querySelector(u(s)),l=a.scrollHeight;e.classList.add(i),requestAnimationFrame((function(){requestAnimationFrame((function(){a.style.height=t?"".concat(l,"px"):"auto"}))})),this.updateARIA(e,{ariaExpanded:!0,ariaDisabled:!r})},closeElement:function(e){var t=!(arguments.length>1&&void 0!==arguments[1])||arguments[1],n=this.options,s=n.panelClass,i=n.activeClass,r=n.beforeClose,o=e.querySelector(u(s)),a=o.scrollHeight;e.classList.remove(i),t?(r(e),requestAnimationFrame((function(){o.style.height="".concat(a,"px"),requestAnimationFrame((function(){o.style.height=0}))}))):o.style.height=0,this.updateARIA(e,{ariaExpanded:!1,ariaDisabled:!1})},toggleElement:function(e){var t=this.options,n=t.activeClass,s=t.collapse,i=e.classList.contains(n);if(!i||s)return i?this.closeElement(e):this.showElement(e)},closeElements:function(){var e=this,t=this.options,n=t.activeClass;t.showMultiple||this.elements.forEach((function(t,s){t.classList.contains(n)&&s!==e.currFocusedIdx&&e.closeElement(t)}))},handleClick:function(e){var t=this,n=e.currentTarget;this.elements.forEach((function(s,i){s.contains(n)&&"A"!==e.target.nodeName&&(t.currFocusedIdx=i,t.closeElements(),t.focus(e,s),t.toggleElement(s))}))},handleKeydown:function(e){switch(e.key){case"ArrowUp":return this.focusPrevElement(e);case"ArrowDown":return this.focusNextElement(e);case"Home":return this.focusFirstElement(e);case"End":return this.focusLastElement(e);default:return null}},handleFocus:function(e){var t=e.currentTarget,n=this.elements.find((function(e){return e.contains(t)}));this.currFocusedIdx=this.elements.indexOf(n)},handleTransitionEnd:function(e){if(e.stopPropagation(),"height"===e.propertyName){var t=this.options,n=t.onOpen,s=t.onClose,i=e.currentTarget,r=parseInt(i.style.height),o=this.elements.find((function(e){return e.contains(i)}));r>0?(i.style.height="auto",n(o)):s(o)}}};this.attachEvents=function(){if(!o){var e=a.options,t=e.triggerClass,n=e.panelClass;a.handleClick=a.handleClick.bind(a),a.handleKeydown=a.handleKeydown.bind(a),a.handleFocus=a.handleFocus.bind(a),a.handleTransitionEnd=a.handleTransitionEnd.bind(a),a.elements.forEach((function(e){var s=e.querySelector(u(t)),i=e.querySelector(u(n));s.addEventListener("click",a.handleClick),s.addEventListener("keydown",a.handleKeydown),s.addEventListener("focus",a.handleFocus),i.addEventListener("webkitTransitionEnd",a.handleTransitionEnd),i.addEventListener("transitionend",a.handleTransitionEnd)})),o=!0}},this.detachEvents=function(){if(o){var e=a.options,t=e.triggerClass,n=e.panelClass;a.elements.forEach((function(e){var s=e.querySelector(u(t)),i=e.querySelector(u(n));s.removeEventListener("click",a.handleClick),s.removeEventListener("keydown",a.handleKeydown),s.removeEventListener("focus",a.handleFocus),i.removeEventListener("webkitTransitionEnd",a.handleTransitionEnd),i.removeEventListener("transitionend",a.handleTransitionEnd)})),o=!1}},this.toggle=function(e){var t=a.elements[e];t&&a.toggleElement(t)},this.open=function(e){var t=a.elements[e];t&&a.showElement(t)},this.openAll=function(){var e=a.options,t=e.activeClass,n=e.onOpen;a.elements.forEach((function(e){e.classList.contains(t)||(a.showElement(e,!1),n(e))}))},this.close=function(e){var t=a.elements[e];t&&a.closeElement(t)},this.closeAll=function(){var e=a.options,t=e.activeClass,n=e.onClose;a.elements.forEach((function(e){e.classList.contains(t)&&(a.closeElement(e,!1),n(e))}))},this.destroy=function(){i.detachEvents(),i.openAll(),a.elements.forEach((function(e){a.removeIDs(e),a.removeARIA(e),a.setTransition(e,!0)})),o=!0},this.update=function(){a.createDefinitions(),i.detachEvents(),i.attachEvents()};var l=function(e){return"string"==typeof document.documentElement.style[e]?e:(e=c(e),e="webkit".concat(e))},c=function(e){return e.charAt(0).toUpperCase()+e.slice(1)},u=function(e){return".".concat(CSS.escape(e))};a.init()}; true&&void 0!==module.exports?module.exports=n:e.Accordion=n}(window);
+
+/***/ }),
+
+/***/ "./src/js/_components.js":
+/*!*******************************!*\
+  !*** ./src/js/_components.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_video__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/video */ "./src/js/components/video.js");
+/* harmony import */ var _components_accordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/accordion */ "./src/js/components/accordion.js");
+
+
+// import './components/script-pre';
+
+/***/ }),
+
+/***/ "./src/js/_functions.js":
+/*!******************************!*\
+  !*** ./src/js/_functions.js ***!
+  \******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_burger__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./functions/burger */ "./src/js/functions/burger.js");
+/* harmony import */ var _functions_disable_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./functions/disable-scroll */ "./src/js/functions/disable-scroll.js");
+/* harmony import */ var _functions_enable_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./functions/enable-scroll */ "./src/js/functions/enable-scroll.js");
+// Данный файл - лишь собрание подключений готовых компонентов.
+// Рекомендуется создавать отдельный файл в папке components и подключать все там
+
+// Определение операционной системы на мобильных
+// import { mobileCheck } from "./functions/mobile-check";
+// console.log(mobileCheck())
+
+// Определение ширины экрана
+// import { isMobile, isTablet, isDesktop } from './functions/check-viewport';
+// if (isDesktop()) {
+//   console.log('...')
+// }
+
+// Троттлинг функции (для ресайза, ввода в инпут, скролла и т.д.)
+// import { throttle } from './functions/throttle';
+// let yourFunc = () => { console.log('throttle') };
+// let func = throttle(yourFunc);
+// window.addEventListener('resize', func);
+
+// Фикс фулскрин-блоков
+// import './functions/fix-fullheight';
+
+// Реализация бургер-меню
+
+
+// Реализация остановки скролла (не забудьте вызвать функцию)
+
+
+// Реализация включения скролла (не забудьте вызвать функцию)
+
+
+// Реализация модального окна
+// import GraphModal from 'graph-modal';
+// const modal = new GraphModal();
+
+// Реализация табов
+// import GraphTabs from 'graph-tabs';
+// const tabs = new GraphTabs('tab');
+
+// Получение высоты шапки сайта (не забудьте вызвать функцию)
+// import { getHeaderHeight } from './functions/header-height';
+
+// Подключение плагина кастом-скролла
+// import 'simplebar';
+
+// Подключение плагина для позиционирования тултипов
+// import { createPopper, right} from '@popperjs/core';
+// createPopper(el, tooltip, {
+//   placement: 'right'
+// });
+
+// Подключение свайпера
+// import Swiper, { Navigation, Pagination } from 'swiper';
+// Swiper.use([Navigation, Pagination]);
+// const swiper = new Swiper(el, {
+//   slidesPerView: 'auto',
+// });
+
+// Подключение анимаций по скроллу
+// import AOS from 'aos';
+// AOS.init();
+
+// Подключение параллакса блоков при скролле
+// import Rellax from 'rellax';
+// const rellax = new Rellax('.rellax');
+
+// Подключение плавной прокрутки к якорям
+// import SmoothScroll from 'smooth-scroll';
+// const scroll = new SmoothScroll('a[href*="#"]');
+
+// Подключение событий свайпа на мобильных
+// import 'swiped-events';
+// document.addEventListener('swiped', function(e) {
+//   console.log(e.target);
+//   console.log(e.detail);
+//   console.log(e.detail.dir);
+// });
+
+// import { validateForms } from './functions/validate-forms';
+// const rules1 = [...];
+
+// const afterForm = () => {
+//   console.log('Произошла отправка, тут можно писать любые действия');
+// };
+
+// validateForms('.form-1', rules1, afterForm);
+
+// Подключение аккордиона michu2k.github.io/Accordion/
+// import Accordion from 'accordion-js';
+// new Accordion('.we-offer-accordion');
+
+/***/ }),
+
+/***/ "./src/js/_vars.js":
+/*!*************************!*\
+  !*** ./src/js/_vars.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  windowEl: window,
+  documentEl: document,
+  htmlEl: document.documentElement,
+  bodyEl: document.body
+});
+
+/***/ }),
+
+/***/ "./src/js/_vendor.js":
+/*!***************************!*\
+  !*** ./src/js/_vendor.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vendor_focus_visible_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./vendor/focus-visible.js */ "./src/js/vendor/focus-visible.js");
+/* harmony import */ var _vendor_focus_visible_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_vendor_focus_visible_js__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
+/***/ "./src/js/components/accordion.js":
+/*!****************************************!*\
+  !*** ./src/js/components/accordion.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var accordion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! accordion-js */ "./node_modules/accordion-js/dist/accordion.min.js");
+/* harmony import */ var accordion_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(accordion_js__WEBPACK_IMPORTED_MODULE_0__);
+
+document.addEventListener('DOMContentLoaded', event => {
+  const faqAccordion = document.querySelector('.faq-accordion');
+  if (faqAccordion) {
+    new (accordion_js__WEBPACK_IMPORTED_MODULE_0___default())(faqAccordion);
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/video.js":
+/*!************************************!*\
+  !*** ./src/js/components/video.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_check_viewport__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/check-viewport */ "./src/js/functions/check-viewport.js");
+
+document.addEventListener('DOMContentLoaded', event => {
+  const video = document.querySelector('.video-block__video');
+  const videoBox = document.querySelector('.video-block__box');
+  const playBtn = document.querySelector('.video-block__play');
+  if (video) {
+    playBtn.addEventListener('click', () => {
+      videoBox.classList.add('played');
+      video.play();
+      video.controls = true;
+      playBtn.classList.add('played');
+    });
+    video.onpause = function () {
+      videoBox.classList.remove('played');
+      video.controls = false;
+      playBtn.classList.remove('played');
+    };
+    if ((0,_functions_check_viewport__WEBPACK_IMPORTED_MODULE_0__.isMobile)()) {
+      const videoObserver = new IntersectionObserver(_ref => {
+        let [entry] = _ref;
+        const videoBg = entry.target || {};
+        // проверяем, что видео в принципе запускалось
+        if (videoBg.currentTime !== 0) {
+          // Если видео вне viewport или видимо только на 20%
+          if (!entry.isIntersecting || entry.intersectionRatio <= 0.2) {
+            // жмем паузу
+            videoBg.pause();
+          }
+        }
+      }, {
+        // Трригер сработает при выходе как верхней, так и нижней границы
+        threshold: [0.4, 0.8]
+      });
+      document.querySelectorAll('.video-block__video').forEach(videoBg => {
+        videoObserver.observe(videoBg);
+      });
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/functions/burger.js":
+/*!************************************!*\
+  !*** ./src/js/functions/burger.js ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_disable_scroll__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/disable-scroll */ "./src/js/functions/disable-scroll.js");
+/* harmony import */ var _functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/enable-scroll */ "./src/js/functions/enable-scroll.js");
+
+
+(function () {
+  const burger = document?.querySelector('[data-burger]');
+  const menu = document?.querySelector('[data-menu]');
+  const menuItems = document?.querySelectorAll('[data-menu-item]');
+  const overlay = document?.querySelector('[data-menu-overlay]');
+  burger?.addEventListener('click', e => {
+    burger?.classList.toggle('burger--active');
+    menu?.classList.toggle('menu--active');
+    if (menu?.classList.contains('menu--active')) {
+      burger?.setAttribute('aria-expanded', 'true');
+      burger?.setAttribute('aria-label', 'Закрыть меню');
+      (0,_functions_disable_scroll__WEBPACK_IMPORTED_MODULE_0__.disableScroll)();
+    } else {
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.setAttribute('aria-label', 'Открыть меню');
+      (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+    }
+  });
+  overlay?.addEventListener('click', () => {
+    burger?.setAttribute('aria-expanded', 'false');
+    burger?.setAttribute('aria-label', 'Открыть меню');
+    burger.classList.remove('burger--active');
+    menu.classList.remove('menu--active');
+    (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+  });
+  menuItems?.forEach(el => {
+    el.addEventListener('click', () => {
+      burger?.setAttribute('aria-expanded', 'false');
+      burger?.setAttribute('aria-label', 'Открыть меню');
+      burger.classList.remove('burger--active');
+      menu.classList.remove('menu--active');
+      (0,_functions_enable_scroll__WEBPACK_IMPORTED_MODULE_1__.enableScroll)();
+    });
+  });
+})();
+
+/***/ }),
+
+/***/ "./src/js/functions/check-viewport.js":
+/*!********************************************!*\
+  !*** ./src/js/functions/check-viewport.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   isDesktop: () => (/* binding */ isDesktop),
+/* harmony export */   isMobile: () => (/* binding */ isMobile),
+/* harmony export */   isTablet: () => (/* binding */ isTablet)
+/* harmony export */ });
+const isMobile = () => {
+  if (window.innerWidth < 768) {
+    return true;
+  }
+  return false;
+};
+const isTablet = () => {
+  if (window.innerWidth >= 769 && window.innerWidth <= 1024) {
+    return true;
+  }
+  return false;
+};
+const isDesktop = () => {
+  if (window.innerWidth > 1025) {
+    return true;
+  }
+  return false;
+};
+
+/***/ }),
+
+/***/ "./src/js/functions/disable-scroll.js":
+/*!********************************************!*\
+  !*** ./src/js/functions/disable-scroll.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   disableScroll: () => (/* binding */ disableScroll)
+/* harmony export */ });
+/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars */ "./src/js/_vars.js");
+
+const disableScroll = () => {
+  const fixBlocks = document?.querySelectorAll('.fixed-block');
+  const pagePosition = window.scrollY;
+  const paddingOffset = `${window.innerWidth - _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.offsetWidth}px`;
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'none';
+  fixBlocks.forEach(el => {
+    el.style.paddingRight = paddingOffset;
+  });
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.paddingRight = paddingOffset;
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.classList.add('dis-scroll');
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.dataset.position = pagePosition;
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.top = `-${pagePosition}px`;
+};
+
+/***/ }),
+
+/***/ "./src/js/functions/enable-scroll.js":
+/*!*******************************************!*\
+  !*** ./src/js/functions/enable-scroll.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   enableScroll: () => (/* binding */ enableScroll)
+/* harmony export */ });
+/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../_vars */ "./src/js/_vars.js");
+
+const enableScroll = () => {
+  const fixBlocks = document?.querySelectorAll('.fixed-block');
+  const body = document.body;
+  const pagePosition = parseInt(_vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.dataset.position, 10);
+  fixBlocks.forEach(el => {
+    el.style.paddingRight = '0px';
+  });
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.paddingRight = '0px';
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.style.top = 'auto';
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.classList.remove('dis-scroll');
+  window.scroll({
+    top: pagePosition,
+    left: 0
+  });
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].bodyEl.removeAttribute('data-position');
+  _vars__WEBPACK_IMPORTED_MODULE_0__["default"].htmlEl.style.scrollBehavior = 'smooth';
+};
+
+/***/ }),
+
+/***/ "./src/js/vendor/focus-visible.js":
+/*!****************************************!*\
+  !*** ./src/js/vendor/focus-visible.js ***!
+  \****************************************/
+/***/ (() => {
+
+/**
+ * Applies the :focus-visible polyfill at the given scope.
+ * A scope in this case is either the top-level Document or a Shadow Root.
+ *
+ * @param {(Document|ShadowRoot)} scope
+ * @see https://github.com/WICG/focus-visible
+ */
+function applyFocusVisiblePolyfill(scope) {
+  var hadKeyboardEvent = true;
+  var hadFocusVisibleRecently = false;
+  var hadFocusVisibleRecentlyTimeout = null;
+  var inputTypesAllowlist = {
+    text: true,
+    search: true,
+    url: true,
+    tel: true,
+    email: true,
+    password: true,
+    number: true,
+    date: true,
+    month: true,
+    week: true,
+    time: true,
+    datetime: true,
+    'datetime-local': true
+  };
+
+  /**
+   * Helper function for legacy browsers and iframes which sometimes focus
+   * elements like document, body, and non-interactive SVG.
+   * @param {Element} el
+   */
+  function isValidFocusTarget(el) {
+    if (el && el !== document && el.nodeName !== 'HTML' && el.nodeName !== 'BODY' && 'classList' in el && 'contains' in el.classList) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Computes whether the given element should automatically trigger the
+   * `focus-visible` class being added, i.e. whether it should always match
+   * `:focus-visible` when focused.
+   * @param {Element} el
+   * @return {boolean}
+   */
+  function focusTriggersKeyboardModality(el) {
+    var type = el.type;
+    var tagName = el.tagName;
+    if (tagName === 'INPUT' && inputTypesAllowlist[type] && !el.readOnly) {
+      return true;
+    }
+    if (tagName === 'TEXTAREA' && !el.readOnly) {
+      return true;
+    }
+    if (el.isContentEditable) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Add the `focus-visible` class to the given element if it was not added by
+   * the author.
+   * @param {Element} el
+   */
+  function addFocusVisibleClass(el) {
+    if (el.classList.contains('focus-visible')) {
+      return;
+    }
+    el.classList.add('focus-visible');
+    el.setAttribute('data-focus-visible-added', '');
+  }
+
+  /**
+   * Remove the `focus-visible` class from the given element if it was not
+   * originally added by the author.
+   * @param {Element} el
+   */
+  function removeFocusVisibleClass(el) {
+    if (!el.hasAttribute('data-focus-visible-added')) {
+      return;
+    }
+    el.classList.remove('focus-visible');
+    el.removeAttribute('data-focus-visible-added');
+  }
+
+  /**
+   * If the most recent user interaction was via the keyboard;
+   * and the key press did not include a meta, alt/option, or control key;
+   * then the modality is keyboard. Otherwise, the modality is not keyboard.
+   * Apply `focus-visible` to any current active element and keep track
+   * of our keyboard modality state with `hadKeyboardEvent`.
+   * @param {KeyboardEvent} e
+   */
+  function onKeyDown(e) {
+    if (e.metaKey || e.altKey || e.ctrlKey) {
+      return;
+    }
+    if (isValidFocusTarget(scope.activeElement)) {
+      addFocusVisibleClass(scope.activeElement);
+    }
+    hadKeyboardEvent = true;
+  }
+
+  /**
+   * If at any point a user clicks with a pointing device, ensure that we change
+   * the modality away from keyboard.
+   * This avoids the situation where a user presses a key on an already focused
+   * element, and then clicks on a different element, focusing it with a
+   * pointing device, while we still think we're in keyboard modality.
+   * @param {Event} e
+   */
+  function onPointerDown(e) {
+    hadKeyboardEvent = false;
+  }
+
+  /**
+   * On `focus`, add the `focus-visible` class to the target if:
+   * - the target received focus as a result of keyboard navigation, or
+   * - the event target is an element that will likely require interaction
+   *   via the keyboard (e.g. a text box)
+   * @param {Event} e
+   */
+  function onFocus(e) {
+    // Prevent IE from focusing the document or HTML element.
+    if (!isValidFocusTarget(e.target)) {
+      return;
+    }
+    if (hadKeyboardEvent || focusTriggersKeyboardModality(e.target)) {
+      addFocusVisibleClass(e.target);
+    }
+  }
+
+  /**
+   * On `blur`, remove the `focus-visible` class from the target.
+   * @param {Event} e
+   */
+  function onBlur(e) {
+    if (!isValidFocusTarget(e.target)) {
+      return;
+    }
+    if (e.target.classList.contains('focus-visible') || e.target.hasAttribute('data-focus-visible-added')) {
+      // To detect a tab/window switch, we look for a blur event followed
+      // rapidly by a visibility change.
+      // If we don't see a visibility change within 100ms, it's probably a
+      // regular focus change.
+      hadFocusVisibleRecently = true;
+      window.clearTimeout(hadFocusVisibleRecentlyTimeout);
+      hadFocusVisibleRecentlyTimeout = window.setTimeout(function () {
+        hadFocusVisibleRecently = false;
+      }, 100);
+      removeFocusVisibleClass(e.target);
+    }
+  }
+
+  /**
+   * If the user changes tabs, keep track of whether or not the previously
+   * focused element had .focus-visible.
+   * @param {Event} e
+   */
+  function onVisibilityChange(e) {
+    if (document.visibilityState === 'hidden') {
+      // If the tab becomes active again, the browser will handle calling focus
+      // on the element (Safari actually calls it twice).
+      // If this tab change caused a blur on an element with focus-visible,
+      // re-apply the class when the user switches back to the tab.
+      if (hadFocusVisibleRecently) {
+        hadKeyboardEvent = true;
+      }
+      addInitialPointerMoveListeners();
+    }
+  }
+
+  /**
+   * Add a group of listeners to detect usage of any pointing devices.
+   * These listeners will be added when the polyfill first loads, and anytime
+   * the window is blurred, so that they are active when the window regains
+   * focus.
+   */
+  function addInitialPointerMoveListeners() {
+    document.addEventListener('mousemove', onInitialPointerMove);
+    document.addEventListener('mousedown', onInitialPointerMove);
+    document.addEventListener('mouseup', onInitialPointerMove);
+    document.addEventListener('pointermove', onInitialPointerMove);
+    document.addEventListener('pointerdown', onInitialPointerMove);
+    document.addEventListener('pointerup', onInitialPointerMove);
+    document.addEventListener('touchmove', onInitialPointerMove);
+    document.addEventListener('touchstart', onInitialPointerMove);
+    document.addEventListener('touchend', onInitialPointerMove);
+  }
+  function removeInitialPointerMoveListeners() {
+    document.removeEventListener('mousemove', onInitialPointerMove);
+    document.removeEventListener('mousedown', onInitialPointerMove);
+    document.removeEventListener('mouseup', onInitialPointerMove);
+    document.removeEventListener('pointermove', onInitialPointerMove);
+    document.removeEventListener('pointerdown', onInitialPointerMove);
+    document.removeEventListener('pointerup', onInitialPointerMove);
+    document.removeEventListener('touchmove', onInitialPointerMove);
+    document.removeEventListener('touchstart', onInitialPointerMove);
+    document.removeEventListener('touchend', onInitialPointerMove);
+  }
+
+  /**
+   * When the polfyill first loads, assume the user is in keyboard modality.
+   * If any event is received from a pointing device (e.g. mouse, pointer,
+   * touch), turn off keyboard modality.
+   * This accounts for situations where focus enters the page from the URL bar.
+   * @param {Event} e
+   */
+  function onInitialPointerMove(e) {
+    // Work around a Safari quirk that fires a mousemove on <html> whenever the
+    // window blurs, even if you're tabbing out of the page. ¯\_(ツ)_/¯
+    if (e.target.nodeName && e.target.nodeName.toLowerCase() === 'html') {
+      return;
+    }
+    hadKeyboardEvent = false;
+    removeInitialPointerMoveListeners();
+  }
+
+  // For some kinds of state, we are interested in changes at the global scope
+  // only. For example, global pointer input, global key presses and global
+  // visibility change should affect the state at every scope:
+  document.addEventListener('keydown', onKeyDown, true);
+  document.addEventListener('mousedown', onPointerDown, true);
+  document.addEventListener('pointerdown', onPointerDown, true);
+  document.addEventListener('touchstart', onPointerDown, true);
+  document.addEventListener('visibilitychange', onVisibilityChange, true);
+  addInitialPointerMoveListeners();
+
+  // For focus and blur, we specifically care about state changes in the local
+  // scope. This is because focus / blur events that originate from within a
+  // shadow root are not re-dispatched from the host element if it was already
+  // the active element in its own scope:
+  scope.addEventListener('focus', onFocus, true);
+  scope.addEventListener('blur', onBlur, true);
+
+  // We detect that a node is a ShadowRoot by ensuring that it is a
+  // DocumentFragment and also has a host property. This check covers native
+  // implementation and polyfill implementation transparently. If we only cared
+  // about the native implementation, we could just check if the scope was
+  // an instance of a ShadowRoot.
+  if (scope.nodeType === Node.DOCUMENT_FRAGMENT_NODE && scope.host) {
+    // Since a ShadowRoot is a special kind of DocumentFragment, it does not
+    // have a root element to add a class to. So, we add this attribute to the
+    // host element instead:
+    scope.host.setAttribute('data-js-focus-visible', '');
+  } else if (scope.nodeType === Node.DOCUMENT_NODE) {
+    document.documentElement.classList.add('js-focus-visible');
+    document.documentElement.setAttribute('data-js-focus-visible', '');
+  }
+}
+
+// It is important to wrap all references to global window and document in
+// these checks to support server-side rendering use cases
+// @see https://github.com/WICG/focus-visible/issues/199
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  // Make the polyfill helper globally available. This can be used as a signal
+  // to interested libraries that wish to coordinate with the polyfill for e.g.,
+  // applying the polyfill to a shadow root:
+  window.applyFocusVisiblePolyfill = applyFocusVisiblePolyfill;
+
+  // Notify interested libraries of the polyfill's presence, in case the
+  // polyfill was loaded lazily:
+  var event;
+  try {
+    event = new CustomEvent('focus-visible-polyfill-ready');
+  } catch (error) {
+    // IE11 does not support using CustomEvent as a constructor directly:
+    event = document.createEvent('CustomEvent');
+    event.initCustomEvent('focus-visible-polyfill-ready', false, false, {});
+  }
+  window.dispatchEvent(event);
+}
+if (typeof document !== 'undefined') {
+  // Apply the polyfill to the global document, so that no JavaScript
+  // coordination is required to use the polyfill in the top-level document:
+  applyFocusVisiblePolyfill(document);
+}
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
+/*!************************!*\
+  !*** ./src/js/main.js ***!
+  \************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _vendor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./_vendor */ "./src/js/_vendor.js");
+/* harmony import */ var _vars__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_vars */ "./src/js/_vars.js");
+/* harmony import */ var _functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_functions */ "./src/js/_functions.js");
+/* harmony import */ var _components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_components */ "./src/js/_components.js");
+
+
+
+
+})();
+
+/******/ })()
+;

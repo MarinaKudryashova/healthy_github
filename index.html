@@ -1,4 +1,425 @@
-<!DOCTYPE html><html lang="ru" class="page"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png"><link rel="manifest" href="favicon//site.webmanifest"><link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="theme-color" content="#ffffff"><title>Healthy Office</title><link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/NeutralFace-Regular.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin><link rel="stylesheet" href="css/vendor.css"><link rel="stylesheet" href="css/main.css"><script defer="defer" src="js/main.js"></script></head><body class="page__body"><div class="site-container site-container--home"><header class="header"><div class="header__container container"><a href="index.html" class="header__logo logo"><img class="logo__img" src="img/logo.svg" alt="Logo Healthy Office" width="200" height="74"></a><nav class="nav" title="main navigation" data-menu><ul class="list-reset nav__list"><li class="nav__item"><a href="index.html" class="nav__link link">Главная</a></li><li class="nav__item"><a href="conception.html" class="nav__link link">Наша концепция</a></li><li class="nav__item"><a href="catalog.html" class="nav__link link">Каталог</a></li><li class="nav__item"><a href="blog.html" class="nav__link link">Блог</a></li><li class="nav__item"><a href="faq.html" class="nav__link link">Ответы на вопросы</a></li><li class="nav__item"><a href="contact.html" class="nav__link link">Контакты</a></li></ul><a href="tel:+79687103403" class="nav__link link link__icon link__icon--phone">+7 968 710-34-03</a></nav><button class="btn-reset burger" aria-label="Открыть меню" aria-expanded="false" data-burger><span class="burger__line"></span></button></div></header><main class="main"><div class="block-bg"></div><section class="promo-home section-offset"><div class="promo-home__container container grid"><div class="promo-home__content"><h1 class="promo-home__title">Healthy Office</h1><p class="promo-home__descr">В гармонии со здоровьем</p><picture class="promo-home__img"><source media="(max-width: 576px)" type="image/webp" srcset="img/home/promo-home-576.webp, img/home/promo-home-576@2x.webp 2x"><source media="(max-width: 576px)" srcset="img/home/promo-home-576.png, img/home/promo-home-576@2x.png 2x"><source srcset="img/home/promo-home.webp, img/home/promo-home@2x.webp 2x" type="image/webp"><img loading="lazy" src="img/home/promo-home.png" srcset="img/home/promo-home@2x.png 2x" width="852" height="584" alt="Комплект мебели Healthy Office"></picture><button class="promo-home__btn btn btn--dark btn-reset" data-graph-path="modal-form">Оставить заявку</button></div></div></section><div class="video-block section-offset"><div class="video-block__container container"><div class="video-block__box"><button class="btn-reset video-block__play" aria-label="Play video"><svg><use xlink:href="img/sprite.svg#play"></use></svg></button><!-- https://youtu.be/a9jdxcQFWV0?si=U1rDbDT7KRVoiWKP --><video src="video/video.mp4" class="video-block__video" poster="img/home/poster-video.jpg" preload="metadata"></video></div><div class="video-block__btns"><a href="https://www.youtube.com/@healthyoffice_" class="video-block__btn btn btn--color" target="_blank">youTube</a> <a href="https://rutube.ru/channel/36685580/" class="video-block__btn btn btn--color" target="_blank">RUTUBE</a></div></div></div><div class="about section-offset"><div class="about__container container grid"><picture class="about__img"><source media="(max-width: 576px)" type="image/webp" srcset="img/home/about-576.webp, img/home/about-576@2x.webp 2x"><source media="(max-width: 576px)" srcset="img/home/about-576.png, img/home/about-576@2x.png 2x"><source srcset="img/home/about.webp, img/home/about@2x.webp 2x" type="image/webp"><img loading="lazy" src="img/home/about.jpg" srcset="img/home/about@2x.jpg" width="580" height="400" alt="Буклет о healthy office" aria-hidden="true"></picture><h2 class="about__title title">Healthy  Office — это новая философия организации офисного пространства.</h2><!-- <div class="about__textcontent">
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon//site.webmanifest">
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#ffffff">
+  <title>Healthy Office</title>
+  <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/NeutralFace-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="js/main.js"></script>
+</head>
+
+<body class="page__body">
+  <div class="site-container site-container--home">
+    <header class="header">
+  <div class="header__container container">
+    <a href="index.html" class="header__logo logo">
+      <img class="logo__img" src="img/logo-2.svg" alt="Logo Healthy Office" width="200" height="74">
+    </a>
+    <nav class="nav" title="main navigation" data-menu>
+      <ul class="list-reset nav__list">
+        <li class="nav__item"><a href="index.html" class="nav__link link">Главная</a></li>
+        <li class="nav__item"><a href="conception.html" class="nav__link link">Наша концепция</a></li>
+        <li class="nav__item"><a href="catalog.html" class="nav__link link">Каталог</a></li>
+        <li class="nav__item"><a href="blog.html" class="nav__link link">Блог</a></li>
+        <li class="nav__item"><a href="faq.html" class="nav__link link">Ответы на вопросы</a></li>
+        <li class="nav__item"><a href="contact.html" class="nav__link link">Контакты</a></li>
+      </ul>
+      <a href="tel:+79687103403" class="nav__link link link__icon link__icon--phone">+7 968 710-34-03</a>
+    </nav>
+    <button class="btn-reset burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
+      <span class="burger__line"></span>
+    </button>
+  </div>
+</header>
+
+    <main class="main">
+      <section class="promo-home section-offset">
+  <div class="promo-home__container container grid">
+    <div class="promo-home__content">
+      <h1 class="promo-home__title">Healthy Office</h1>
+      <p class="promo-home__descr">В гармонии со здоровьем</p>
+      <picture  class="promo-home__img">
+        <source media="(max-width: 576px)" type="image/webp" srcset="img/home/promo-home-2-576.webp 1x, img/home/promo-home-2-576@2x.webp 2x">
+        <source media="(max-width: 576px)" srcset="img/home/promo-home-2-576.png 1x, img/home/promo-home-2-576@2x.png 2x">
+        <source srcset="img/home/promo-home-2.webp 1x, img/home/promo-home-2@2x.webp 2x" type="image/webp">
+        <img loading="lazy" src="img/home/promo-home-2.png" srcset="img/home/promo-home-2@2x.png 2x" width="752" height="626" alt="Комплект мебели Healthy Office">
+      </picture>
+      <button class="promo-home__btn btn btn--color btn-reset" data-graph-path="modal-form">Оставить заявку</button>
+    </div>
+  </div>
+</section>
+
+      <div class="video-block section-offset">
+  <div class="video-block__container container">
+    <div class="video-block__box">
+      <button class="btn-reset video-block__play" aria-label="Play video">
+        <svg>
+          <use xlink:href="img/sprite.svg#play"></use>
+        </svg>
+      </button>
+      <!-- poster="img/home/poster-video.jpg" -->
+      <!-- https://youtu.be/a9jdxcQFWV0?si=U1rDbDT7KRVoiWKP -->
+      <video src="video/video.mp4" class="video-block__video"  preload="metadata"></video>
+    </div>
+    <div class="video-block__btns">
+      <a href="https://www.youtube.com/@healthyoffice_" class="video-block__btn btn btn--color" target="_blank">youTube</a>
+      <a href="https://rutube.ru/channel/36685580/" class="video-block__btn btn btn--color" target="_blank">RUTUBE</a>
+    </div>
+  </div>
+</div>
+
+      <div class="about section-offset">
+  <div class="about__container container grid">
+    <picture class="about__img">
+      <source media="(max-width: 576px)" type="image/webp" srcset="img/home/about-576.webp 1x, img/home/about-576@2x.webp 2x">
+      <source media="(max-width: 576px)" srcset="img/home/about-576.png 1x, img/home/about-576@2x.png 2x">
+      <source srcset="img/home/about.webp 1x, img/home/about@2x.webp 2x" type="image/webp">
+      <img loading="lazy" src="img/home/about.jpg" srcset="img/home/about@2x.jpg" width="580" height="400" alt="Буклет о healthy office" aria-hidden="true">
+    </picture>
+    <h2 class="about__title title">Healthy  Office — это новая философия организации офисного пространства. </h2>
+
+    <!-- <div class="about__textcontent">
       <h2 class="about__title title">Healthy  Office - это новая философия организации офисного пространства. </h2>
       <p class="about__descr">Она включает в себя применение инновационных мебельных решений в комплексе с электронными устройствами для диагностики состояния здоровья. </p>
-    </div> --></div></div><section class="benefits section-offset"><div class="benefits__container container"><h2 class="benefits__title title">Концепция Healthy Office направлена на:</h2><ul class="benefits__list list-reset grid"><li class="benefits__item"><p class="benefits__text">Создание динамичной рабочей среды</p></li><li class="benefits__item"><p class="benefits__text">Поддержание здорового образа жизни</p></li><li class="benefits__item"><p class="benefits__text">Повышение эффективности и мотивации сотрудников</p></li></ul><p class="benefits__slogan title">Healthy Office в гармонии со здоровьем</p></div></section><section class="faq section-offset"><div class="container"><h2 class="faq__title title" data-aos="fade-right">Ответы на частые вопросы</h2><div class="faq__container grid"><div class="faq__content"><div class="accordion-container faq__accordion faq-accordion"><!-- start element --><div class="ac faq-accordion__item" data-aos="fade-right" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Могу ли я оформить доставку в другой город?</button></h2><div class="ac-panel"><p class="ac-text">Да, мы доставляем по всей России. Доставка рассчитывается отдельно.</p></div></div><!-- end element --><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Где Вы находитесь?</button></h2><div class="ac-panel"><p class="ac-text">Склад находится в г. Москва. Доставка до других городов РФ от 2х дней</p></div></div><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Где посмотреть продукцию Healthy Office?</button></h2><div class="ac-panel"><p class="ac-text">Кресла можно посмотреть:<br>г. Москва, Кутузовский пр-т, д. 36, стр. 11.<br>Будни 09:00 — 18:00<br> — во всех других городах мы работаем как интернет-магазин.</p></div></div><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Можно заказать сборку?</button></h2><div class="ac-panel"><p class="ac-text">Сборка доступна в городе Москва. Рассчитывается отдельно.</p></div></div><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Предоставляете ли Вы скидку на оптовые заказы?</button></h2><div class="ac-panel"><p class="ac-text">По вопросам оптовых закупок — оставьте заявку. Оптовая цена рассчитывается отдельно.</p></div></div><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Если товар бракованный?</button></h2><div class="ac-panel"><p class="ac-text">Необходимо направить претензию, приложить фото/видео подтверждение брака, чек о покупке. После проверки Вам предложат замену кресла или отдельных запчастей.</p></div></div><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Возможен ли возврат купленной мебели и на каких условиях?</button></h2><div class="ac-panel"><p class="ac-text">Приобретенный у нас товар надлежащего качества вы можете вернуть на протяжении 7 календарных дней с даты получения. Условия возврата: отсутствие повреждений и следов сборки, сохранность фирменной упаковки, возмещение затрат продавцу за доставку в обе стороны и погрузку-разгрузку (либо замена на складе).</p></div></div><div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0"><h2 class="ac-header"><button type="button" class="ac-trigger">Возможен ли возврат продавцу уже собранной мебели?</button></h2><div class="ac-panel"><p class="ac-text">Мы не осуществляем возврат мебели надлежащего качества после сборки или с внешними признаками выполнения сборки.</p></div></div></div></div><div class="faq__aside" data-aos="fade-left" data-aos-delay="200"><div class="faq__form form"><div class="form__head"><h3 class="form__title title">Задайте нам вопрос</h3><p class="form__descr">Заполните форму, чтобы наш менеджер связался с Вами и подробно проконсультировал по всем вопросам</p></div><form action="#"><div class="form__wrapp"><div class="form__content"><div class="form-field"><svg class="form-field__icon"><use xlink:href="img/sprite.svg#user"></use></svg> <input type="text" name="Имя" class="input-reset form-field__input form-field__input--user" placeholder="Введите Ваше имя" required aria-label="Введите ваше имя" autocomplete="name"> <label class="form-field__label">Введите Ваше имя</label></div><div class="form-field"><svg class="form-field__icon"><use xlink:href="img/sprite.svg#tel"></use></svg> <input type="tel" name="tel" class="input-reset form-field__input form-field__input--tel" placeholder="Введите Ваш номер телефона" required aria-label="Введите ваш телефон" autocomplete="tel"> <label class="form-field__label">Введите Ваш номер телефона</label></div><div class="form-field"><input class="btn-reset btn btn--color form__btn" type="submit" value="Оставить заявку"></div></div></div></form><div class="form__bottom"><p class="form__policy form__text">Нажимая на кнопку, Вы даете согласие на обработку персональных данных</p><p class="form__social-info form__text">Или свяжитесь с нами в мессенджерах</p><ul class="form__social list-reset social" title="form social"><li class="social__item"><a href="https://t.me/healthyoffice" target="_blank" class="social__link" aria-label="Напишите нам в Телеграм"><img loading="lazy" src="img/icon/telegram.svg" class="social__icon" width="30" height="30" alt="" aria-hidden="true"></a></li><li class="social__item"><a href="https://wa.me/+79687103403" target="_blank" class="social__link" aria-label="Напишите нам в Whatsapp"><img loading="lazy" src="img/icon/whatsapp.svg" class="social__icon" width="30" height="30" alt="" aria-hidden="true"></a></li><li class="social__item"><a href="tel:+79687103403" target="_blank" class="social__link" aria-label="Позвоните нам"><img loading="lazy" src="img/icon/social-phone.svg" class="social__icon" width="30" height="30" alt="" aria-hidden="true"></a></li></ul></div></div></div></div></div></section></main><footer class="footer"><div class="footer__top"><div class="footer__container footer__container--top container"><a href="index.html" class="footer__logo logo"><img class="logo__img" src="img/logo-2.svg" alt="Logo Healthy Office" width="200"></a><div class="footer__left"><nav class="footer__nav footer-nav" title="footer navigation"><ul class="list-reset footer-nav__list"><li class="footer-nav__item"><a href="index.html" class="footer-nav__link link">Главная</a></li><li class="footer-nav__item"><a href="conception.html" class="footer-nav__link link">Наша концепция</a></li><li class="footer-nav__item"><a href="catalog.html" class="footer-nav__link link">Каталог</a></li><li class="footer-nav__item"><a href="blog.html" class="footer-nav__link link">Блог</a></li><li class="footer-nav__item"><a href="faq.html" class="footer-nav__link link">Ответы на вопросы</a></li><li class="footer-nav__item"><a href="contact.html" class="footer-nav__link link">Контакты</a></li></ul></nav><address class="footer__address footer-address"><a href="mailto:info@apriltd.com" class="footer-address__item footer-address__text link__icon link__icon--mail link">Info@apriltd.com</a> <a href="tel:+79687103403" class="footer-address__item footer-address__text link__icon link__icon--phone link">+7 968 710-34-03</a> <span class="footer-address__item footer-address__text link__icon link__icon--local">121170, г. Москва, Кутузовский проспект, д. 36, стр. 11</span></address><div class="company-info"><span>ООО «Апрель Трейдинг»</span> <span>ОГРН 1227700191740</span> <span>ИНН 9715416772</span> <span>КПП 773001001</span></div></div></div></div><div class="footer__bottom"><div class="footer__container container"><ul class="list-reset footer__list"><li class="footer__item"><a href="#" class="footer__link link">Политика использования Cookies</a></li><li class="footer__item"><a href="#" class="footer__link link">Политика конфиденциальности</a></li><li class="footer__item"><a href="#" class="footer__link link">Пользовательское соглашение</a></li><li class="footer__item"><a href="#" class="footer__link link">Публичная оферта</a></li></ul><a href="index.html" class="footer__logo--mobile logo"><img class="logo__img" src="img/logo-2.svg" alt="Logo Healthy Office" width="200"></a></div></div></footer></div></body></html>
+    </div> -->
+  </div>
+</div>
+
+      <section class="benefits section-offset">
+  <div class="benefits__container container">
+    <h2 class="benefits__title title">Концепция Healthy Office направлена на:</h2>
+    <ul class="benefits__list list-reset grid">
+      <li class="benefits__item">
+        <p class="benefits__text">Создание динамичной рабочей среды</p>
+      </li>
+      <li class="benefits__item">
+        <p class="benefits__text">Поддержание здорового образа жизни</p>
+      </li>
+      <li class="benefits__item">
+        <p class="benefits__text">Повышение эффективности и мотивации сотрудников</p>
+      </li>
+    </ul>
+    <p class="benefits__slogan title">Healthy Office в гармонии со здоровьем</p>
+  </div>
+</section>
+
+<section class="feachers section-offset">
+  <div class="container">
+    <h2 class="feachers__title title">В чем преимущества HEALTHY OFFICE?</h2>
+    <div class="feachers__list">
+
+      <div class="feachers__col">
+        <div class="feachers__row feachers-card feachers-card--big feachers-card--1">
+          <h3 class="feachers-card__title">Инновационный подход к рабочему пространству:</h3>
+          <p class="feachers-card__descr">HEALTHY OFFICE предлагает решения, которые помогут вам попрощаться со скучным многочасовым сидением и сделать свой рабочий день более активным и динамичным. </p>
+        </div>
+        <div class="feachers__row feachers-card feachers-card--3">
+          <h3 class="feachers-card__title">Здоровая спина  — залог успеха:</h3>
+          <p class="feachers-card__descr">HEALTHY OFFICE помогает укрепить мышечный корсет, снижая риск развития болезней суставов и позвоночника.</p>
+        </div>
+      </div>
+
+      <div class="feachers__col">
+        <div class="feachers__row feachers-card feachers-card--big feachers-card--4">
+          <h3 class="feachers-card__title">Стильный и современный офис:</h3>
+          <p class="feachers-card__descr">HEALTHY OFFICE — это не только забота о здоровье, но и создание вдохновляющей атмосферы. Эргономичная мебель и стильный дизайн  —  все это способствует  повышению  рабочего настроя и  формированию  позитивного  имиджа компании. </p>
+        </div>
+        <div class="feachers__row feachers-card feachers-card--2">
+          <h3 class="feachers-card__title">Больше энергии и бодрости: </h3>
+          <p class="feachers-card__descr">Специальные комплексы упражнений, легко интегрируемые в рабочий процесс, насыщают кровь кислородом, повышают уровень энергии и улучшают самочувствие.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- <ul class="feachers__list list-reset">
+      <li class="feachers__item">
+        <div class="feachers-card">
+          <h3 class="feachers-card__title">Инновационный подход к рабочему пространству:</h3>
+          <p class="feachers-card__descr">HEALTHY OFFICE предлагает решения, которые помогут вам попрощаться со скучным многочасовым сидением и сделать свой рабочий день более активным и динамичным. </p>
+        </div>
+      </li>
+
+      <li class="feachers__item">
+        <div class="feachers-card">
+          <h3 class="feachers-card__title">Больше энергии и бодрости: </h3>
+          <p class="feachers-card__descr">Специальные комплексы упражнений, легко интегрируемые в рабочий процесс, насыщают кровь кислородом, повышают уровень энергии и улучшают самочувствие.</p>
+        </div>
+      </li>
+
+      <li class="feachers__item">
+        <div class="feachers-card">
+          <h3 class="feachers-card__title">Стильный и современный офис:</h3>
+          <p class="feachers-card__descr">HEALTHY OFFICE — это не только забота о здоровье, но и создание вдохновляющей атмосферы. Эргономичная мебель и стильный дизайн  —  все это способствует  повышению  рабочего настроя и  формированию  позитивного  имиджа компании. </p>
+        </div>
+      </li>
+
+      <li class="feachers__item">
+        <div class="feachers-card">
+          <h3 class="feachers-card__title">Здоровая спина  — залог успеха:</h3>
+          <p class="feachers-card__descr">HEALTHY OFFICE помогает укрепить мышечный корсет, снижая риск развития болезней суставов и позвоночника.</p>
+        </div>
+      </li>
+    </ul> -->
+
+    </ul>
+  </div>
+</section>
+
+      <section class="guide section-offset">
+  <div class="guide__container container grid">
+    <h2 class="guide__title title">Получите гайд с комплексом тренировок от Healthy Office.</h2>
+    <div class="guide__content grid">
+      <ul class="list-reset guide__list">
+        <li class="guide__item">
+          <p class="guide__message">
+            Привет, меня зовут Евгения<br>
+            Иванова, я специалист Healthy Office</p>
+          <div class="guide__note">
+            <span class="guide__time">10:15</span>
+            <img class="guide__icon" loading="lazy" src="img/icon/icon-message.svg" width="14" height="8" alt="" aria-hidden="true">
+          </div>
+        </li>
+        <li class="guide__item">
+          <p class="guide__message">
+            Я помогу Вам узнать о том, как совмещать работу и физические нагрузки.
+          </p>
+          <div class="guide__note">
+            <span class="guide__time">10:16</span>
+            <img class="guide__icon" loading="lazy" src="img/icon/icon-message.svg" width="14" height="8" alt="" aria-hidden="true">
+          </div>
+        </li>
+      </ul>
+
+      <picture class="guide__img">
+        <source media="(max-width: 576px)" type="image/webp" srcset="img/home/lady-576.webp 1x, img/home/lady-576@2x.webp 2x">
+        <source media="(max-width: 576px)" srcset="img/home/lady-576.png 1x, img/home/lady-576@2x.png 2x">
+        <source srcset="img/home/lady.webp" type="image/webp">
+        <img loading="lazy" src="img/home/lady.png" srcset="img/home/lady@2x.png" width="550" height="550" alt="Девушка" aria-hidden="true">
+      </picture>
+
+      <div class="guide__contacts guide-contacts">
+        <a href="tel:+79687103403" class="guide-contacts__item link__icon guide-contacts--phone link">+7 968 710-34-03</a>
+        <a href="mailto:info@apriltd.com" class="guide-contacts__item link__icon guide-contacts--mail link">info@apriltd.com</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section class="faq section-offset">
+  <div class="container">
+    <h2 class="faq__title title" data-aos="fade-right">Ответы на частые вопросы</h2>
+    <div class="faq__container grid">
+      <div class="faq__content">
+        <div class="accordion-container faq__accordion faq-accordion">
+          <!-- start element -->
+          <div class="ac faq-accordion__item" data-aos="fade-right" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Могу ли я оформить доставку в другой город?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Да, мы доставляем по всей России. Доставка рассчитывается отдельно.</p>
+            </div>
+          </div>
+          <!-- end element -->
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Где Вы находитесь?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Склад находится в г. Москва. Доставка до других городов РФ от 2х дней</p>
+            </div>
+          </div>
+
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Где посмотреть продукцию Healthy Office?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">
+                Кресла можно посмотреть:<br>
+                г. Москва, Кутузовский пр-т, д. 36, стр. 11.<br>
+                Будни 09:00 — 18:00<br>
+                — во всех других городах мы работаем как интернет-магазин.
+              </p>
+            </div>
+          </div>
+
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Можно заказать сборку?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Сборка доступна в городе Москва. Рассчитывается отдельно.</p>
+            </div>
+          </div>
+
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Предоставляете ли Вы скидку на оптовые заказы?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">По вопросам оптовых закупок — оставьте заявку. Оптовая цена рассчитывается отдельно.</p>
+            </div>
+          </div>
+
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Если товар бракованный?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Необходимо направить претензию, приложить фото/видео подтверждение
+                брака, чек о покупке. После проверки Вам предложат замену кресла или
+                отдельных запчастей.</p>
+            </div>
+          </div>
+
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Возможен ли возврат купленной мебели и на каких условиях?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Приобретенный у нас товар надлежащего качества вы можете вернуть на
+                протяжении 7 календарных дней с даты получения. Условия возврата:
+                отсутствие повреждений и следов сборки, сохранность фирменной упаковки,
+                возмещение затрат продавцу за доставку в обе стороны и погрузку-разгрузку
+                (либо замена на складе).</p>
+            </div>
+          </div>
+
+          <div class="ac faq-accordion__item" data-aos="fade-left" data-aos-delay="200" data-aos-offset="0">
+            <h2 class="ac-header">
+              <button type="button" class="ac-trigger">Возможен ли возврат продавцу уже собранной мебели?</button>
+            </h2>
+            <div class="ac-panel">
+              <p class="ac-text">Мы не осуществляем возврат мебели надлежащего качества после сборки
+                или с внешними признаками выполнения сборки.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="faq__aside" data-aos="fade-left" data-aos-delay="200">
+        <div class="faq__form form">
+          <div class="form__head">
+            <h3 class="form__title title">Задайте нам вопрос</h3>
+            <p class="form__descr">Заполните форму, чтобы наш менеджер связался с Вами и подробно проконсультировал по всем вопросам</p>
+          </div>
+
+          <form action="#">
+            <div class="form__wrapp">
+              <div class="form__content">
+                <div class="form-field">
+                  <svg class="form-field__icon">
+                    <use xlink:href="img/sprite.svg#user"></use>
+                  </svg>
+                  <input type="text" name="Имя" class="input-reset form-field__input form-field__input--user" placeholder="Введите Ваше имя" required aria-label="Введите ваше имя" autocomplete="name">
+                  <label class="form-field__label">Введите Ваше имя</label>
+                </div>
+                <div class="form-field">
+                  <svg class="form-field__icon">
+                    <use xlink:href="img/sprite.svg#tel"></use>
+                  </svg>
+                  <input type="tel" name="tel" class="input-reset form-field__input form-field__input--tel" placeholder="Введите Ваш номер телефона" required aria-label="Введите ваш телефон" autocomplete="tel">
+                  <label class="form-field__label">Введите Ваш номер телефона</label>
+                </div>
+                <div class="form-field">
+                  <input class="btn-reset btn btn--color form__btn" type="submit" value="Оставить заявку">
+                </div>
+              </div>
+            </div>
+          </form>
+          <div class="form__bottom">
+            <p class="form__policy form__text">Нажимая на кнопку, Вы даете согласие на обработку персональных данных</p>
+            <p class="form__social-info form__text">Или свяжитесь с нами в мессенджерах</p>
+            <ul class="form__social list-reset social" title="form social">
+
+              <li class="social__item"><a href="https://t.me/healthyoffice" target="_blank" class="social__link" aria-label="Напишите нам в Телеграм">
+                <img loading="lazy" src="img/icon/telegram.svg" class="social__icon" width="30" height="30" alt="" aria-hidden="true">
+              </a></li>
+
+              <li class="social__item"><a href="https://wa.me/+79687103403" target="_blank" class="social__link" aria-label="Напишите нам в Whatsapp">
+                <img loading="lazy" src="img/icon/whatsapp.svg" class="social__icon" width="30" height="30" alt="" aria-hidden="true">
+              </a></li>
+
+              <li class="social__item"><a href="tel:+79687103403" target="_blank" class="social__link" aria-label="Позвоните нам">
+                <img loading="lazy" src="img/icon/social-phone.svg" class="social__icon" width="30" height="30" alt="" aria-hidden="true">
+              </a></li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+    <footer class="footer">
+  <div class="footer__top">
+    <div class="footer__container footer__container--top container">
+      <a href="index.html" class="footer__logo logo">
+        <img class="logo__img" src="img/logo-2.svg" alt="Logo Healthy Office" width="200">
+      </a>
+      <div class="footer__left">
+        <nav class="footer__nav footer-nav" title="footer navigation">
+          <ul class="list-reset footer-nav__list">
+            <li class="footer-nav__item"><a href="index.html" class="footer-nav__link link">Главная</a></li>
+            <li class="footer-nav__item"><a href="conception.html" class="footer-nav__link link">Наша концепция</a></li>
+            <li class="footer-nav__item"><a href="catalog.html" class="footer-nav__link link">Каталог</a></li>
+            <li class="footer-nav__item"><a href="blog.html" class="footer-nav__link link">Блог</a></li>
+            <li class="footer-nav__item"><a href="faq.html" class="footer-nav__link link">Ответы на вопросы</a></li>
+            <li class="footer-nav__item"><a href="contact.html" class="footer-nav__link link">Контакты</a></li>
+          </ul>
+        </nav>
+        <address class="footer__address footer-address">
+          <a href="mailto:info@apriltd.com" class="footer-address__item footer-address__text link__icon link__icon--mail link">Info@apriltd.com</a>
+          <a href="tel:+79687103403" class="footer-address__item footer-address__text link__icon link__icon--phone link">+7 968 710-34-03</a>
+          <span class="footer-address__item footer-address__text link__icon link__icon--local">121170, г. Москва, Кутузовский проспект, д. 36, стр. 11</span>
+        </address>
+        <div class="company-info">
+            <span>ООО «Апрель Трейдинг»</span>
+            <span>ОГРН 1227700191740</span>
+            <span>ИНН 9715416772</span>
+            <span>КПП 773001001</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <div class="footer__container container">
+      <ul class="list-reset footer__list">
+        <li class="footer__item"><a href="#" class="footer__link link">Политика использования Cookies</a></li>
+        <li class="footer__item"><a href="#" class="footer__link link">Политика конфиденциальности</a></li>
+        <li class="footer__item"><a href="#" class="footer__link link">Пользовательское соглашение</a></li>
+        <li class="footer__item"><a href="#" class="footer__link link">Публичная оферта</a></li>
+      </ul>
+      <a href="index.html" class="footer__logo--mobile logo">
+        <img class="logo__img" src="img/logo-2.svg" alt="Logo Healthy Office" width="200">
+      </a>
+    </div>
+  </div>
+</footer>
+
+  </div>
+</body>
+
+</html>
