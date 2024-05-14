@@ -10,9 +10,7 @@
   --c-bg-light: #eee;
   --c-bg-opacity: rgba(39, 29, 59, 0.2);
   --c-dark-blue: #31244a;
-  --global-color-primary: #271D3B;
-  --global-color-secondary: #303030;
-  --global-color-white: #fff;
+  --c-cove: #6f76b7;
 }
 
 /* stylelint-disable */
@@ -654,10 +652,10 @@ a {
     line-height: 143%;
   }
 }
-.btn--dark {
-  background-color: var(--c-bg-dark);
-  -webkit-box-shadow: 3px 4px 6px 0 rgba(39, 29, 59, 0.5);
-  box-shadow: 3px 4px 6px 0 rgba(39, 29, 59, 0.5);
+.btn--full {
+  background-color: var(--c-cove);
+  -webkit-box-shadow: 0 6px 8px 0 rgba(52, 11, 11, 0.4);
+  box-shadow: 0 6px 8px 0 rgba(52, 11, 11, 0.4);
 }
 .btn--color {
   -webkit-box-shadow: 3px 4px 6px 0 rgba(39, 29, 59, 0.5);
@@ -1890,6 +1888,15 @@ a {
     grid-column: 5/8 span;
   }
 }
+@media (max-width: 1024px) {
+  .guide__title {
+    -ms-grid-column-span: 12;
+    grid-column: 12 span;
+    -ms-grid-column-align: end;
+    justify-self: end;
+    width: 80%;
+  }
+}
 .guide__content {
   position: relative;
   -ms-grid-column-span: 12;
@@ -1907,6 +1914,12 @@ a {
   flex-direction: column;
   gap: 30px;
 }
+@media (max-width: 1024px) {
+  .guide__list {
+    -ms-grid-column-span: 8;
+    grid-column: 8 span;
+  }
+}
 .guide__item {
   position: relative;
   display: -webkit-box;
@@ -1920,7 +1933,7 @@ a {
   max-width: 408px;
   word-wrap: break-word;
   color: var(--c-white);
-  background-color: #a73031;
+  background-color: var(--c-cove);
 }
 .guide__item:first-child {
   -ms-flex-item-align: end;
@@ -1944,13 +1957,13 @@ a {
 .guide__item:before {
   right: -7px;
   width: 20px;
-  background-color: #a73031;
+  background-color: var(--c-cove);
   border-bottom-left-radius: 16px 14px;
 }
 .guide__item:after {
   right: -26px;
   width: 26px;
-  background-color: var(--c-bg-dark);
+  background-color: var(--c-dark-blue);
   border-bottom-left-radius: 10px;
 }
 .guide__message {
@@ -2000,6 +2013,14 @@ a {
     transform: translateX(50%);
   }
 }
+@media (max-width: 1024px) {
+  .guide__img {
+    right: 0;
+    -webkit-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
 .guide__img img {
   width: 300px;
   height: 550px;
@@ -2023,6 +2044,16 @@ a {
   .guide__contacts {
     grid-column: 9/4 span;
     padding-left: 100px;
+  }
+}
+.guide__btn {
+  border-radius: 10px;
+  padding: 20px 10px;
+  max-width: 260px;
+}
+@media (max-width: 1024px) {
+  .guide__btn {
+    display: none;
   }
 }
 
