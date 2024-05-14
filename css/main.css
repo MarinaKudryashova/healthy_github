@@ -10,6 +10,9 @@
   --c-bg-light: #eee;
   --c-bg-opacity: rgba(39, 29, 59, 0.2);
   --c-dark-blue: #31244a;
+  --global-color-primary: #271D3B;
+  --global-color-secondary: #303030;
+  --global-color-white: #fff;
 }
 
 /* stylelint-disable */
