@@ -17,12 +17,10 @@
   <link rel="preload" href="fonts/NeutralFace-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Montserrat-Bold.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/Montserrat-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/> -->
   <link rel="stylesheet" href="css/vendor.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/media.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <!-- <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
   <script defer src="js/main.js"></script>
 </head>
 
@@ -39,10 +37,16 @@
         <li class="nav__item"><a href="conception.html" class="nav__link link">Наша концепция</a></li>
         <li class="nav__item"><a href="catalog.html" class="nav__link link">Каталог</a></li>
         <li class="nav__item"><a href="blog.html" class="nav__link link">Блог</a></li>
-        <li class="nav__item"><a href="faq.html" class="nav__link link">Ответы на вопросы</a></li>
+        <li class="nav__item"><a href="questions.html" class="nav__link link">Ответы на вопросы</a></li>
         <li class="nav__item"><a href="contact.html" class="nav__link link">Контакты</a></li>
       </ul>
-      <a href="tel:+79687103403" class="nav__link link link__icon link__icon--phone">+7 968 710-34-03</a>
+      <!-- <a href="tel:+79687103403" class="nav__link link link__icon link__icon--phone">+7 968 710 34 03</a> -->
+      <a href="tel:+79687103403" class="nav__link link header__link--phone">
+        <svg class="">
+          <use xlink:href="img/sprite.svg#phone"></use>
+        </svg>
+        +7 968 710-34-03
+      </a>
     </nav>
     <button class="btn-reset burger" aria-label="Открыть меню" aria-expanded="false" data-burger>
       <span class="burger__line"></span>
@@ -52,7 +56,7 @@
 
     <main class="main">
       <section class="promo-home section-offset">
-  <div class="promo-home__container container grid">
+  <div class="promo-home__container container">
     <div class="promo-home__content">
       <h1 class="promo-home__title">Healthy Office</h1>
       <p class="promo-home__descr">В гармонии со здоровьем</p>
@@ -62,7 +66,7 @@
         <source srcset="img/home/promo-home-2.webp 1x, img/home/promo-home-2@2x.webp 2x" type="image/webp">
         <img loading="lazy" src="img/home/promo-home-2.png" srcset="img/home/promo-home-2@2x.png 2x" width="752" height="626" alt="Комплект мебели Healthy Office">
       </picture>
-      <button class="promo-home__btn btn btn--color btn-reset" data-graph-path="modal-form">Оставить заявку</button>
+      <button class="promo-home__btn btn btn--color btn-reset" data-graph-path="promo-modal">Оставить заявку</button>
     </div>
   </div>
 </section>
@@ -121,121 +125,172 @@
   </div>
 </section>
 
-<!-- PRE -->
-<section class="slider section-offset">
+      <section class="sec-slider section-offset">
   <div class="container">
-      <h2 class="slider__title title">Что входит в Healthy Office? </h2>
-      <div class="swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+    <h2 class="sec-slider__title title title-offset">Что входит в Healthy Office?</h2>
+  </div>
 
-              <div class="slider__items">
-                  <div class="slide__preview over-out">
-                      <div class="slide__tag">Подъемный стол</div>
-                      <img src="assets/images/slide1.png" alt="" class="item__img-prev out">
-                      <img src="assets/images/tableHover.jpg" alt="" class="item__img over">
-                      <div class="slide__hover">
-                          <div class="slide__title">
-                              Подъемный стол
-                          </div>
-                          <a href="index.html#" class="slide__btn">Подробнее</a>
-                      </div>
-                  </div>
-              </div>
-            </div>
+  <div class="sec-slider__slider product-slider swiper">
+    <div class="swiper-wrapper">
 
-            <div class="swiper-slide">
-              <div class="slider__items">
-                  <div class="slide__preview over-out">
-                      <div class="slide__tag">Healthy Chair</div>
-                      <img src="assets/images/slide2.png" alt="" class="item__img-prev out">
-                      <img src="assets/images/tableHover.jpg" alt="" class="item__img over">
-                      <div class="slide__hover">
-                          <div class="slide__title">
-                              Healthy Chair
-                          </div>
-                          <a href="index.html#" class="slide__btn">Подробнее</a>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-              <div class="slider__items">
-                  <div class="slide__preview over-out">
-                      <div class="slide__tag">Велотренажер</div>
-                      <img src="assets/images/slide3.png" alt="" class="item__img-prev out">
-                      <img src="assets/images/tableHover.jpg" alt="" class="item__img over">
-                      <div class="slide__hover">
-                          <div class="slide__title">
-                              Велотренажер
-                          </div>
-                          <a href="index.html#" class="slide__btn">Подробнее</a>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-
-              <div class="slider__items">
-                  <div class="slide__preview over-out">
-                      <div class="slide__tag">Балансборд</div>
-                      <img src="assets/images/slide4.png" alt="" class="item__img-prev out">
-                      <img src="assets/images/tableHover.jpg" alt="" class="item__img over">
-                      <div class="slide__hover">
-                          <div class="slide__title">
-                              Балансборд
-                          </div>
-                          <a href="index.html#" class="slide__btn">Подробнее</a>
-                      </div>
-                  </div>
-              </div>
-            </div>
-
-            <div class="swiper-slide">
-
-              <div class="slider__items">
-                  <div class="slide__preview over-out">
-                      <div class="slide__tag">Подъемный стол</div>
-                      <img src="assets/images/slide1.png" alt="" class="item__img-prev out">
-                      <img src="assets/images/tableHover.jpg" alt="" class="item__img over">
-                      <div class="slide__hover">
-                          <div class="slide__title">
-                              Подъемный стол
-                          </div>
-                          <a href="index.html#" class="slide__btn">Подробнее</a>
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
+      <div class="swiper-slide">
+        <div class="product-slider__card-front">
+          <h3 class="product-slider__title">Подъемный стол</h3>
+          <picture class="product-slider__img">
+            <source srcset="img/catalog/catalog-1.webp" type="image/webp">
+            <img loading="lazy" src="img/catalog/catalog-1.png" width="380" height="300" alt="Подъемный стол от Healthy Office">
+          </picture>
         </div>
-      <!--swiper end test-->
+        <div class="product-slider__card-back" style="background-image: url('img/catalog/catalog-1-2.jpg');">
+          <div class="product-slider__info">
+            <h3 class="product-slider__info-title">Подъемный стол</h3>
+            <button class="product-slider__info-btn btn--color btn btn-reset" data-graph-path="catalog-modal">Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="product-slider__card-front">
+          <h3 class="product-slider__title">Healthy Chair</h3>
+          <picture class="product-slider__img">
+            <!-- <source srcset="img/catalog/catalog-2.webp" type="image/webp"> -->
+            <source srcset="img/catalog/cheir-3.webp" type="image/webp">
+            <!-- <img loading="lazy" src="img/catalog/catalog-2.png" width="380" height="300" alt="Healthy Chair от Healthy Office"> -->
+            <img loading="lazy" src="img/catalog/cheir-3.png" width="380" height="300" alt="Healthy Chair от Healthy Office">
+          </picture>
+        </div>
+        <div class="product-slider__card-back">
+          <div class="product-slider__info">
+            <h3 class="product-slider__info-title">Healthy Chair</h3>
+            <button class="product-slider__info-btn btn--color btn btn-reset" data-graph-path="catalog-modal">Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="product-slider__card-front">
+          <h3 class="product-slider__title">Балансборд</h3>
+          <picture class="product-slider__img">
+            <source srcset="img/catalog/catalog-4.webp" type="image/webp">
+            <img loading="lazy" src="img/catalog/catalog-4.png" width="380" height="300" alt="Балансборд от Healthy Office">
+          </picture>
+        </div>
+        <div class="product-slider__card-back">
+          <div class="product-slider__info">
+            <h3 class="product-slider__info-title">Балансборд</h3>
+            <button class="product-slider__info-btn btn--color btn btn-reset" data-graph-path="catalog-modal">Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="product-slider__card-front">
+          <h3 class="product-slider__title">Велотренажер</h3>
+          <picture class="product-slider__img">
+            <!-- <source srcset="img/catalog/catalog-6.webp" type="image/webp"> -->
+            <source srcset="img/catalog/velo.webp" type="image/webp">
+            <!-- <img loading="lazy" src="img/catalog/catalog-6.png" width="380" height="300" alt="Велотренажер от Healthy Office"> -->
+            <img loading="lazy" src="img/catalog/velo.png" width="380" height="300" alt="Велотренажер от Healthy Office">
+          </picture>
+        </div>
+        <div class="product-slider__card-back" style="background-image: url('img/velo/velo-bg-6.jpg');">
+          <div class="product-slider__info">
+            <h3 class="product-slider__info-title">Велотренажер</h3>
+            <button class="product-slider__info-btn btn--color btn btn-reset" data-graph-path="catalog-modal-2">Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide">
+        <div class="product-slider__card-front">
+          <h3 class="product-slider__title">Стул-седло</h3>
+          <picture class="product-slider__img">
+            <source srcset="img/catalog/catalog-5.webp" type="image/webp">
+            <img loading="lazy" src="img/catalog/catalog-5.png" width="380" height="300" alt="Стул-седло от Healthy Office">
+          </picture>
+        </div>
+        <div class="product-slider__card-back">
+          <div class="product-slider__info">
+            <h3 class="product-slider__info-title">Стул-седло</h3>
+            <button class="product-slider__info-btn btn--color btn btn-reset" data-graph-path="catalog-modal">Подробнее</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="product-slider__navigation">
+      <button class="product-slider__btn-prev btn-reset">
+        <svg class="product-slider__icon">
+          <use xlink:href="img/sprite.svg#arrow-prev"></use>
+        </svg>
+      </button>
+      <div class="product-slider__pagination"></div>
+      <button class="product-slider__btn-next btn-reset">
+        <svg class="product-slider__icon">
+          <use xlink:href="img/sprite.svg#arrow-next"></use>
+        </svg>
+      </button>
+    </div>
   </div>
+
 </section>
 
-<section class="product section-offset">
+      <section class="product section-offset">
   <div class="container">
-      <div class="clue">
-          <div class="alert"><div class="alert__sum"></div> </div>
-
-      <img src="assets/images/velo.png" alt="" class="velo">
-      <img src="assets/images/table.png" alt="" class="table">
-      <img src="assets/images/carpet.png" alt="" class="carpet">
-      <img src="assets/images/chair.png" alt="" class="chair">
-      <img src="assets/images/chair-comp.png" alt="" class="chair-comp">
-      </div>
-      <div class="product__mobile"></div>
-      <div class="product__content">
-          <div class="price">Цена комплекта  <span class="sale">140 900 ₽</span> </div>
-          <div class="lowPrice">96 500 ₽</div>
-          <div class="not">*велотренажер не входит в комплект</div>
-      </div>
+    <ul class="product__list list-reset">
+      <li class="product__item">
+        <button class="btn-reset tooltip__btn">
+          <img loading="lazy" src="img/home/velo.png" alt="Велотренажер">
+        </button>
+        <span class="tooltip__txt">
+          <span class="tooltip__name">Велотренажер</span>
+          <span class="tooltip__price">44 500₽</span>
+        </span>
+      </li>
+      <li class="product__item">
+        <button class="btn-reset tooltip__btn">
+          <img loading="lazy" src="img/home/table.png" alt="Подъемный стол">
+        </button>
+        <span class="tooltip__txt">
+          <span class="tooltip__name">Подъемный стол</span>
+          <span class="tooltip__price">22 500₽</span>
+        </span>
+      </li>
+      <li class="product__item">
+        <button class="btn-reset tooltip__btn">
+          <img loading="lazy" src="img/home/carpet.png" alt="Балансборд">
+        </button>
+        <span class="tooltip__txt">
+          <span class="tooltip__name">Балансборд</span>
+          <span class="tooltip__price">2 500₽</span>
+        </span>
+      </li>
+      <li class="product__item">
+        <button class="btn-reset tooltip__btn">
+          <img loading="lazy" src="img/home/chair.png" alt="Стул-седло">
+        </button>
+        <span class="tooltip__txt">
+          <span class="tooltip__name">Стул-седло</span>
+          <span class="tooltip__price">3 500₽</span>
+        </span>
+      </li>
+      <li class="product__item">
+        <button class="btn-reset tooltip__btn">
+          <img loading="lazy" src="img/home/chair-comp.png" alt="кресло Healthy Chair">
+        </button>
+        <span class="tooltip__txt">
+          <span class="tooltip__name">кресло Healthy Chair</span>
+          <span class="tooltip__price">23 500₽</span>
+        </span>
+      </li>
+    </ul>
+    <div class="product__content">
+        <div class="price title">Цена комплекта по запросу</div>
+        <div class="not">**в комплект входит: подъемный стол, кресло Healthy Chair, стул-седло, балансборд</div>
+    </div>
   </div>
 </section>
-<!-- PRE -->
+
 <section class="feachers section-offset">
   <div class="container">
     <h2 class="feachers__title title">В чем преимущества HEALTHY OFFICE?</h2>
@@ -299,15 +354,56 @@
   </div>
 </section>
 
-<section class="guide section-offset">
-  <div class="guide__container container grid">
-    <h2 class="guide__title title">Получите гайд с комплексом тренировок от Healthy Office.</h2>
-    <div class="guide__content grid">
+      <section class="guide section-offset">
+  <div class="guide__container container">
+    <h2 class="guide__title title">Получите гайд с комплексом тренировок от Healthy Office</h2>
+    <ul class="guide__list list-reset">
+      <li class="guide__item">
+        <div class="guide-card">
+          <picture class="guide-card__img">
+            <img loading="lazy" src="img/home/guide-1.png" width="340" height="420" alt="" aria-hidden="true">
+          </picture>
+          <h3 class="guide-card__title">Велотренажер рекомендуется использовать ежедневно</h3>
+          <div class="guide-card__descr">
+            <p>
+              5-7 мин (интенсивность выше средней) при сложностях с выполнением когнитивных задач из-за отвлечения внимания;
+              10-15 мин (интенсивность низкая/ умеренная) при выполнении несложных когнитивных задач
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="guide__item">
+        <div class="guide-card">
+          <picture class="guide-card__img">
+            <img loading="lazy" src="img/home/guide-2.jpg" width="340" height="420" alt="" aria-hidden="true">
+          </picture>
+          <h3 class="guide-card__title">Каждые 2 часа рекомендуется выполнять упражнение по балансированию на стуле-седле в течение 5 минут</h3>
+          <div class="guide-card__descr">
+            <p>
+              необходимо следить за правильной осанкой:
+          сохранять прогиб в пояснице, сидеть ближе к заднему краю седла
+            </p>
+          </div>
+        </div>
+      </li>
+      <li class="guide__item">
+        <div class="guide-card">
+          <picture class="guide-card__img">
+            <img loading="lazy" src="img/home/guide-3.png" width="340" height="420" alt="" aria-hidden="true">
+          </picture>
+          <h3 class="guide-card__title">Балансборд может использоваться в качестве подставки для ног при работе в кресле Healthy Chair</h3>
+          <div class="guide-card__descr">
+            <p>рекомендуется использовать балансборд до 20 минут, после упражнений нужно сделать перерыв минимум на 40 минут</p>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!-- <div class="guide__content grid">
       <ul class="list-reset guide__list">
         <li class="guide__item">
           <p class="guide__message">
             Привет, меня зовут Евгения<br>
-            Иванова, я специалист Healthy Office</p>
+            Иванова, я специалист Healthy&nbsp;Office</p>
           <div class="guide__note">
             <span class="guide__time">10:15</span>
             <img class="guide__icon" loading="lazy" src="img/icon/icon-message.svg" width="14" height="8" alt="" aria-hidden="true">
@@ -315,7 +411,7 @@
         </li>
         <li class="guide__item">
           <p class="guide__message">
-            Я помогу Вам узнать о том, как совмещать работу и физические нагрузки.
+            Я помогу Вам узнать о том, как совмещать работу и физические нагрузки.
           </p>
           <div class="guide__note">
             <span class="guide__time">10:16</span>
@@ -332,12 +428,12 @@
       </picture>
 
       <div class="guide__contacts guide-contacts">
-        <button class="guide__btn btn btn--full btn-reset">Оставить заявку</button>
-        <!-- <a href="tel:+79687103403" class="guide-contacts__item link__icon guide-contacts--phone link">+7 968 710 34 03</a>
-        <a href="mailto:info@apriltd.com" class="guide-contacts__item link__icon guide-contacts--mail link">info@apriltd.com</a> -->
+        <button class="guide__btn btn btn--color btn-reset" data-graph-path="guide-modal">Получить гайд</button>
       </div>
 
-    </div>
+    </div> -->
+    <!-- <h2 class="guide__title title">Получите гайд с комплексом тренировок от Healthy Office.</h2> -->
+    <button class="guide__btn btn btn--color btn-reset" data-graph-path="guide-modal">Получить гайд</button>
   </div>
 </section>
 
@@ -446,16 +542,12 @@
             <div class="form__wrapp">
               <div class="form__content">
                 <div class="form-field">
-                  <svg class="form-field__icon">
-                    <use xlink:href="img/sprite.svg#user"></use>
-                  </svg>
+                  <img loading="lazy" src="img/icon/user.svg" class="form-field__icon" width="24" height="24" alt="" aria-hidden="true">
                   <input type="text" name="Имя" class="input-reset form-field__input form-field__input--user" placeholder="Введите Ваше имя" required aria-label="Введите ваше имя" autocomplete="name">
                   <label class="form-field__label">Введите Ваше имя</label>
                 </div>
                 <div class="form-field">
-                  <svg class="form-field__icon">
-                    <use xlink:href="img/sprite.svg#tel"></use>
-                  </svg>
+                  <img loading="lazy" src="img/icon/form-tel.svg" class="form-field__icon" width="24" height="24" alt="" aria-hidden="true">
                   <input type="tel" name="tel" class="input-reset form-field__input form-field__input--tel" placeholder="Введите Ваш номер телефона" required aria-label="Введите ваш телефон" autocomplete="tel">
                   <label class="form-field__label">Введите Ваш номер телефона</label>
                 </div>
@@ -466,7 +558,7 @@
             </div>
           </form>
           <div class="form__bottom">
-            <p class="form__policy form__text">Нажимая на кнопку, Вы даете согласие на обработку персональных данных</p>
+            <p class="form__policy form__text">Нажимая на кнопку, Вы даете согласие на <a href="policy.html" class="argee__link link--underline" target="_blank">обработку персональных данных</a></p>
             <p class="form__social-info form__text">Или свяжитесь с нами в мессенджерах</p>
             <ul class="form__social list-reset social" title="form social">
 
@@ -490,6 +582,317 @@
   </div>
 </section>
 
+      <div class="graph-modal">
+  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="promo-modal">
+    <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно"></button>
+    <div class="graph-modal__content">
+      <div class="promomodal__form form">
+        <div class="form__head">
+          <h3 class="form__title title">Заказать обратный звонок</h3>
+          <p class="form__descr">Оставьте заявку и наш менеджер ответит вам в ближайшее время</p>
+        </div>
+
+        <form action="#">
+          <div class="form__wrapp">
+            <div class="form__content">
+              <div class="form-field">
+                <img loading="lazy" src="img/icon/user.svg" class="form-field__icon" width="24" height="24" alt="" aria-hidden="true">
+                <input type="text" name="Имя" class="input-reset form-field__input form-field__input--user" placeholder="Введите Ваше имя" required aria-label="Введите ваше имя" autocomplete="name">
+                <label class="form-field__label">Введите Ваше имя</label>
+              </div>
+              <div class="form-field">
+                <img loading="lazy" src="img/icon/form-tel.svg" class="form-field__icon" width="24" height="24" alt="" aria-hidden="true">
+                <input type="tel" name="tel" class="input-reset form-field__input form-field__input--tel" placeholder="Введите Ваш номер телефона" required aria-label="Введите ваш телефон" autocomplete="tel">
+                <label class="form-field__label">Введите Ваш номер телефона</label>
+              </div>
+              <div class="form-field">
+                <input class="btn-reset btn btn--color form__btn" type="submit" value="Оставить заявку">
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="form__bottom">
+          <p class="form__policy form__text">Нажимая на кнопку, Вы даете согласие на <a href="policy.html" class="argee__link link--underline" target="_blank">обработку персональных данных</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="graph-modal__container" role="dialog" aria-modal="true" data-graph-target="guide-modal">
+    <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно"></button>
+    <div class="graph-modal__content">
+      <div class="promomodal__form form">
+        <div class="form__head">
+          <h3 class="form__title title">Получить гайд от Healthy Office</h3>
+          <p class="form__descr">Оставьте заявку и наш менеджер вышлет вам гайд с комплексом тренировок от Healthy Office в ближайшее время</p>
+        </div>
+
+        <form action="#">
+          <div class="form__wrapp">
+            <div class="form__content">
+              <div class="form-field">
+                <img loading="lazy" src="img/icon/user.svg" class="form-field__icon" width="24" height="24" alt="" aria-hidden="true">
+                <input type="text" name="Имя" class="input-reset form-field__input form-field__input--user" placeholder="Введите Ваше имя" required aria-label="Введите ваше имя" autocomplete="name">
+                <label class="form-field__label">Введите Ваше имя</label>
+              </div>
+              <div class="form-field">
+                <img loading="lazy" src="img/icon/form-mail.svg" class="form-field__icon" width="24" height="24" alt="" aria-hidden="true">
+                <input type="email" name="email" class="input-reset form-field__input form-field__input--mail" placeholder="Введите Ваш Email" required aria-label="Введите ваш email" autocomplete="email">
+                <label class="form-field__label">Введите Ваш Email</label>
+              </div>
+              <div class="form-field">
+                <input class="btn-reset btn btn--color form__btn" type="submit" value="Оставить заявку">
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="form__bottom">
+          <p class="form__policy form__text">Нажимая на кнопку, Вы даете согласие на <a href="policy.html" class="argee__link link--underline" target="_blank">обработку персональных данных</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="graph-modal__container popup" role="dialog" aria-modal="true" data-graph-target="modal-send">
+    <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно"></button>
+    <div class="graph-modal__content">
+      <div class="graph-modal__send">
+        <svg>
+          <use xlink:href="img/sprite.svg#thumb-up"></use>
+        </svg>
+        <p>отлично!</p>
+        <span>Ваше сообщение отправлено</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="graph-modal__container graph-modal__container--catalog popup" role="dialog" aria-modal="true" data-graph-target="catalog-modal">
+    <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно"></button>
+
+    <div class="graph-modal__content graph-modal__slider-content">
+
+      <div class="graph-modal__catalog-slider catalog-slider">
+        <div class="catalog-slider__wrap">
+
+          <div class="swiper catalog-slider__images">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Подъемный стол" href="img/catalog/t-1.png">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/catalog/t-1.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-1.png" width="278" height="278" alt="Подъемный стол">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Подъемный стол" href="img/catalog/t-2.png">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/catalog/t-2.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-2.png" width="278" height="278" alt="Подъемный стол">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Подъемный стол" href="img/catalog/t-3.png">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/catalog/t-3.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-3.png" width="278" height="278" alt="Подъемный стол">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Подъемный стол" href="img/catalog/t-4.jpg">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/catalog/t-4.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-4.jpg" width="278" height="278" alt="Подъемный стол">
+                  </picture>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="catalog-slider__col">
+            <button class="catalog-slider__prev catalog-slider__btn btn-reset">
+              <svg class="catalog-slider__icon">
+                <use xlink:href="img/sprite.svg#arrow"></use>
+              </svg>
+            </button>
+            <div class="swiper catalog-slider__images-nav">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/catalog/t-1.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-1.png" width="278" height="86" alt="">
+                  </picture>
+                </div>
+
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/catalog/t-2.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-2.png" width="120" height="80" alt="">
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/catalog/t-3.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-3.png" width="120" height="80" alt="">
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/catalog/t-4.webp" type="image/webp">
+                    <img loading="lazy" src="img/catalog/t-4.png" width="120" height="80" alt="">
+                  </picture>
+                </div>
+              </div>
+            </div>
+            <button class="catalog-slider__next catalog-slider__btn btn-reset">
+              <svg class="catalog-slider__icon">
+                <use xlink:href="img/sprite.svg#arrow"></use>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="graph-modal__catalog-info catalog-info">
+        <h3 class="catalog-info__title">Стол письменный</h3>
+        <div class="catalog-info__descr">
+          <p>Регулируемый по высоте, с выдвижным ящиком, со встроенными USB док-портами  и 4-х кнопочным блоком регулировки высоты, с электроприводом (один мотор — входное напряжение 220-240 вольт, выходное напряжение VDC 29 вольт, частота 50-60 герц).</p>
+          <p>Материал столешницы — ЛДСП (12 мм). Подстолье и ножки из металла.</p>
+          <p>Грузоподъемность — 50 кг.</p>
+          <p>Скорость подъема — 30 мм/с, Диапазон подъема — 720-1220 мм.</p>
+          <p>Цвет: белый</p>
+        </div>
+        <!-- <span class="catalog-info__price"><span>Цена:</span>25000₽</span> -->
+      </div>
+    </div>
+
+  </div>
+
+  <div class="graph-modal__container graph-modal__container--catalog popup" role="dialog" aria-modal="true" data-graph-target="catalog-modal-2">
+    <button class="btn-reset js-modal-close graph-modal__close" aria-label="Закрыть модальное окно"></button>
+
+    <div class="graph-modal__content graph-modal__slider-content">
+
+      <div class="graph-modal__catalog-slider catalog-slider">
+        <div class="catalog-slider__wrap">
+
+          <div class="swiper catalog-slider__images">
+            <div class="swiper-wrapper">
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Велотренажер" href="img/velo/velo-1.jpg">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/velo/velo-1.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-1.jpg" width="278" height="278" alt="Велотренажер">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Велотренажер" href="img/velo/velo-2.jpg">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/velo/velo-2.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-2.jpg" width="278" height="278" alt="Велотренажер">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Велотренажер" href="img/velo/velo-3.jpg">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/velo/velo-3.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-3.jpg" width="278" height="278" alt="Велотренажер">
+                  </picture>
+                </a>
+              </div>
+
+              <div class="swiper-slide">
+                <a data-fslightbox data-caption="Велотренажер" href="img/velo/velo-4.jpg">
+                  <picture class="catalog-slider__img" >
+                    <source srcset="img/velo/velo-4.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-4.jpg" width="278" height="278" alt="Велотренажер">
+                  </picture>
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="catalog-slider__col">
+            <button class="catalog-slider__prev catalog-slider__btn btn-reset">
+              <svg class="catalog-slider__icon">
+                <use xlink:href="img/sprite.svg#arrow"></use>
+              </svg>
+            </button>
+            <div class="swiper catalog-slider__images-nav">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/velo/velo-1.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-1.jpg" width="278" height="86" alt="">
+                  </picture>
+                </div>
+
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/velo/velo-2.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-2.jpg" width="120" height="80" alt="">
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/velo/velo-3.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-3.png" width="120" height="80" alt="">
+                  </picture>
+                </div>
+                <div class="swiper-slide">
+                  <picture class="catalog-slider__img">
+                    <source srcset="img/velo/velo-4.webp" type="image/webp">
+                    <img loading="lazy" src="img/velo/velo-4.jpg" width="120" height="80" alt="">
+                  </picture>
+                </div>
+              </div>
+            </div>
+            <button class="catalog-slider__next catalog-slider__btn btn-reset">
+              <svg class="catalog-slider__icon">
+                <use xlink:href="img/sprite.svg#arrow"></use>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="graph-modal__catalog-info catalog-info">
+        <h3 class="catalog-info__title">Велотренажер</h3>
+        <div class="catalog-info__descr">
+          <p>Пневмонический регулировочный рычаг</p>
+          <p>Встроенный цифровой дисплей</p>
+          <p>8 уровней сопротивления</p>
+          <p>Складные компактные ножки</p>
+          <p>Занимает минимум места при хранении. Стопоры на колесиках</p>
+          <p>Подходит для людей ростом: 155-190 см</p>
+        </div>
+        <!-- <span class="catalog-info__price"><span>Цена:</span>25000₽</span> -->
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
     </main>
     <footer class="footer">
   <div class="footer__top">
@@ -504,7 +907,7 @@
             <li class="footer-nav__item"><a href="conception.html" class="footer-nav__link link">Наша концепция</a></li>
             <li class="footer-nav__item"><a href="catalog.html" class="footer-nav__link link">Каталог</a></li>
             <li class="footer-nav__item"><a href="blog.html" class="footer-nav__link link">Блог</a></li>
-            <li class="footer-nav__item"><a href="faq.html" class="footer-nav__link link">Ответы на вопросы</a></li>
+            <li class="footer-nav__item"><a href="questions.html" class="footer-nav__link link">Ответы на вопросы</a></li>
             <li class="footer-nav__item"><a href="contact.html" class="footer-nav__link link">Контакты</a></li>
           </ul>
         </nav>
@@ -526,16 +929,22 @@
     <div class="footer__container container">
       <ul class="list-reset footer__list">
         <li class="footer__item"><a href="#" class="footer__link link">Политика использования Cookies</a></li>
-        <li class="footer__item"><a href="#" class="footer__link link">Политика конфиденциальности</a></li>
-        <li class="footer__item"><a href="#" class="footer__link link">Пользовательское соглашение</a></li>
-        <li class="footer__item"><a href="#" class="footer__link link">Публичная оферта</a></li>
+        <li class="footer__item"><a href="policy.html" class="footer__link link">Политика конфиденциальности</a></li>
       </ul>
       <a href="index.html" class="footer__logo--mobile logo">
         <img class="logo__img" src="img/logo-2.svg" alt="Logo Healthy Office" width="200">
       </a>
     </div>
   </div>
+  <div class="footer__bootom-made container">
+    <p>Made by <a href="https://www.cosmo-design.com/">Cosmo design</a></p>
+  </div>
 </footer>
+<button class="btntop btn-reset" data-action="gotop">
+  <svg>
+    <use xlink:href="img/sprite.svg#arrow-up"></use>
+  </svg>
+</button>
 
   </div>
 </body>
